@@ -1,4 +1,4 @@
-name: Release
+name: ReleaseBuild
 
 permissions:
     contents: write
