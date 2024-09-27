@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { ILanguageRegistration } from "@vap/shiki";
+import { ILanguageRegistration } from "shiki";
 
 export const VPC_REPO = "Vap0r1ze/vapcord";
 export const VPC_REPO_COMMIT = "88a7032a59cca40da170926651b08201ea3b965a";

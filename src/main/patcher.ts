@@ -24,7 +24,7 @@ import { initIpc } from "./ipcMain";
 import { RendererSettings } from "./settings";
 import { IS_VANILLA } from "./utils/constants";
 
-console.log("[Equicord] Starting up...");
+console.log("[Enhancecord] Starting up...");
 
 // FIXME: remove at some point
 const isLegacyNonAsarVencord = IS_STANDALONE && !__dirname.endsWith(".asar");
@@ -134,7 +134,7 @@ if (!IS_VANILLA && !isLegacyNonAsarVencord) {
         }
     });
 
-    process.env.DATA_DIR = join(app.getPath("userData"), "..", "Equicord");
+    process.env.DATA_DIR = join(app.getPath("userData"), "..", "Enhancecord");
 
     // Monkey patch commandLine to:
     // - disable WidgetLayering: Fix DevTools context menus https://github.com/electron/electron/issues/38790
@@ -159,10 +159,10 @@ if (!IS_VANILLA && !isLegacyNonAsarVencord) {
     app.commandLine.appendSwitch("disable-background-timer-throttling");
     app.commandLine.appendSwitch("disable-backgrounding-occluded-windows");
 } else {
-    console.log("[Equicord] Running in vanilla mode. Not loading Equicord");
+    console.log("[Enhancecord] Running in vanilla mode. Not loading Enhancecord");
 }
 
 if (!isLegacyNonAsarVencord) {
-    console.log("[Equicord] Loading original Discord app.asar");
+    console.log("[Enhancecord] Loading original Discord app.asar");
     require(require.main!.filename);
 }

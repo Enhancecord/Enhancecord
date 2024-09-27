@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name            Equicord
+// @name            Enhancecord
 // @description     A Discord client mod - Web version
 // @version         %version%
-// @author          Equicord (https://github.com/Equicord)
-// @namespace       https://github.com/Equicord/Equicord
-// @supportURL      https://github.com/Equicord/Equicord
+// @author          Enhancecord (https://github.com/Enhancecord)
+// @namespace       https://github.com/Enhancecord/Enhancecord
+// @supportURL      https://github.com/Enhancecord/Enhancecord
 // @license         GPL-3.0
 // @match           *://*.discord.com/*
 // @grant           GM_xmlhttpRequest
@@ -21,4 +21,4 @@
 // to overwrite stuff on the window on sites that use CSP. Use Tampermonkey or use a chromium based browser
 // https://github.com/violentmonkey/violentmonkey/issues/997
 
-// this is a compiled and minified version of Equicord. For the source code, visit the GitHub repo
+// this is a compiled and minified version of Enhancecord. For the source code, visit the GitHub repo

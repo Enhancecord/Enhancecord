@@ -58,7 +58,7 @@ window.VencordNative = {
     },
 
     updater: {
-        getRepo: async () => ({ ok: true, value: "https://github.com/Equicord/Equicord" }),
+        getRepo: async () => ({ ok: true, value: "https://github.com/Enhancecord/Enhancecord" }),
         getUpdates: async () => ({ ok: true, value: [] }),
         update: async () => ({ ok: true, value: false }),
         rebuild: async () => ({ ok: true, value: true }),
@@ -98,13 +98,13 @@ window.VencordNative = {
     settings: {
         get: () => {
             try {
-                return JSON.parse(localStorage.getItem("EquicordSettings") || "{}");
+                return JSON.parse(localStorage.getItem("EnhancecordSettings") || "{}");
             } catch (e) {
                 console.error("Failed to parse settings from localStorage: ", e);
                 return {};
             }
         },
-        set: async (s: Settings) => localStorage.setItem("EquicordSettings", JSON.stringify(s)),
+        set: async (s: Settings) => localStorage.setItem("EnhancecordSettings", JSON.stringify(s)),
         getSettingsDir: async () => "LocalStorage"
     },
 

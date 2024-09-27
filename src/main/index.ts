@@ -53,8 +53,8 @@ if (IS_VESKTOP || !IS_VANILLA) {
             }
         });
 
-        protocol.registerFileProtocol("equicord", ({ url: unsafeUrl }, cb) => {
-            let url = unsafeUrl.slice("equicord://".length);
+        protocol.registerFileProtocol("enhancecord", ({ url: unsafeUrl }, cb) => {
+            let url = unsafeUrl.slice("enhancecord://".length);
             if (url.endsWith("/")) url = url.slice(0, -1);
             if (url.startsWith("/themes/")) {
                 const theme = url.slice("/themes/".length);
@@ -81,8 +81,8 @@ if (IS_VESKTOP || !IS_VANILLA) {
         try {
             if (RendererSettings.store.enableReactDevtools)
                 installExt("fmkadmapgofadopljbjfkapdkoienihi")
-                    .then(() => console.info("[Equicord] Installed React Developer Tools"))
-                    .catch(err => console.error("[Equicord] Failed to install React Developer Tools", err));
+                    .then(() => console.info("[Enhancecord] Installed React Developer Tools"))
+                    .catch(err => console.error("[Enhancecord] Failed to install React Developer Tools", err));
         } catch { }
 
 

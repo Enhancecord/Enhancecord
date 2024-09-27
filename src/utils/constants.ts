@@ -579,7 +579,7 @@ export const Devs = /* #__PURE__*/ Object.freeze({
     },
 } satisfies Record<string, Dev>);
 
-export const EquicordDevs = Object.freeze({
+export const EnhancecordDevs = Object.freeze({
     nobody: {
         name: "nobody",
         id: 0n
@@ -807,9 +807,9 @@ export const VencordDevsById = /* #__PURE__*/ (() =>
     ))
 )() as Record<string, Dev>;
 
-export const EquicordDevsById = /* #__PURE__*/ (() =>
+export const EnhancecordDevsById = /* #__PURE__*/ (() =>
     Object.freeze(Object.fromEntries(
-        Object.entries(EquicordDevs)
+        Object.entries(EnhancecordDevs)
             .filter(d => d[1].id !== 0n)
             .map(([_, v]) => [v.id, v] as const)
     ))

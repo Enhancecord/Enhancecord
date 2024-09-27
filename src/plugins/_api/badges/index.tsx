@@ -25,14 +25,14 @@ import { openContributorModal } from "@components/PluginSettings/ContributorModa
 import { Devs } from "@utils/constants";
 import { Logger } from "@utils/Logger";
 import { Margins } from "@utils/margins";
-import { isEquicordPluginDev, isPluginDev } from "@utils/misc";
+import { isEnhancecordPluginDev, isPluginDev } from "@utils/misc";
 import { closeModal, Modals, openModal } from "@utils/modal";
 import definePlugin from "@utils/types";
 import { Forms, Toasts, UserStore } from "@webpack/common";
 import { User } from "discord-types/general";
 
 const CONTRIBUTOR_BADGE = "https://vencord.dev/assets/favicon.png";
-const EQUICORD_CONTRIBUTOR_BADGE = "https://i.imgur.com/57ATLZu.png";
+const ENHANCECORD_CONTRIBUTOR_BADGE = "https://i.imgur.com/57ATLZu.png";
 
 const ContributorBadge: ProfileBadge = {
     description: "Vencord Contributor",
@@ -42,16 +42,16 @@ const ContributorBadge: ProfileBadge = {
     onClick: (_, { userId }) => openContributorModal(UserStore.getUser(userId))
 };
 
-const EquicordContributorBadge: ProfileBadge = {
-    description: "Equicord Contributor",
-    image: EQUICORD_CONTRIBUTOR_BADGE,
+const EnhancecordContributorBadge: ProfileBadge = {
+    description: "Enhancecord Contributor",
+    image: ENHANCECORD_CONTRIBUTOR_BADGE,
     position: BadgePosition.START,
-    shouldShow: ({ userId }) => isEquicordPluginDev(userId),
+    shouldShow: ({ userId }) => isEnhancecordPluginDev(userId),
     onClick: (_, { userId }) => openContributorModal(UserStore.getUser(userId))
 };
 
 let DonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
-let EquicordDonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
+let EnhancecordDonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
 
 async function loadBadges(url: string, noCache = false) {
     const init = {} as RequestInit;
@@ -62,10 +62,10 @@ async function loadBadges(url: string, noCache = false) {
 
 async function loadAllBadges(noCache = false) {
     const vencordBadges = await loadBadges("https://badges.vencord.dev/badges.json", noCache);
-    const equicordBadges = await loadBadges("https://raw.githubusercontent.com/Equicord/Equibored/main/badges.json", noCache);
+    const enhancecordBadges = await loadBadges("https://raw.githubusercontent.com/Enhancecord/Equibored/main/badges.json", noCache);
 
     DonorBadges = vencordBadges;
-    EquicordDonorBadges = equicordBadges;
+    EnhancecordDonorBadges = enhancecordBadges;
 }
 
 
@@ -117,7 +117,7 @@ export default definePlugin({
 
     async start() {
         Vencord.Api.Badges.addBadge(ContributorBadge);
-        Vencord.Api.Badges.addBadge(EquicordContributorBadge);
+        Vencord.Api.Badges.addBadge(EnhancecordContributorBadge);
         await loadAllBadges();
     },
 
@@ -209,8 +209,8 @@ export default definePlugin({
         }));
     },
 
-    getEquicordDonorBadges(userId: string) {
-        return EquicordDonorBadges[userId]?.map(badge => ({
+    getEnhancecordDonorBadges(userId: string) {
+        return EnhancecordDonorBadges[userId]?.map(badge => ({
             image: badge.badge,
             description: badge.tooltip,
             position: BadgePosition.START,
@@ -239,7 +239,7 @@ export default definePlugin({
                                         }}
                                     >
                                         <Heart />
-                                        Equicord Donor
+                                        Enhancecord Donor
                                     </Forms.FormTitle>
                                 </Flex>
                             </Modals.ModalHeader>
@@ -260,10 +260,10 @@ export default definePlugin({
                                 </Flex>
                                 <div style={{ padding: "1em" }}>
                                     <Forms.FormText>
-                                        This Badge is a special perk for Equicord (Not Vencord) Donors
+                                        This Badge is a special perk for Enhancecord (Not Vencord) Donors
                                     </Forms.FormText>
                                     <Forms.FormText className={Margins.top20}>
-                                        Please consider supporting the development of Equicord by becoming a donor. It would mean a lot! :3
+                                        Please consider supporting the development of Enhancecord by becoming a donor. It would mean a lot! :3
                                     </Forms.FormText>
                                 </div>
                             </Modals.ModalContent>

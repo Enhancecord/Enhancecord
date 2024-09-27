@@ -96,47 +96,47 @@ export default definePlugin({
         return [
             {
                 section: SectionTypes.HEADER,
-                label: "Equicord",
+                label: "Enhancecord",
                 className: "vc-settings-header"
             },
             {
-                section: "EquicordSettings",
-                label: "Equicord",
+                section: "EnhancecordSettings",
+                label: "Enhancecord",
                 element: VencordTab,
                 className: "vc-settings"
             },
             {
-                section: "EquicordPlugins",
+                section: "EnhancecordPlugins",
                 label: "Plugins",
                 element: PluginsTab,
                 className: "vc-plugins"
             },
             {
-                section: "EquicordThemes",
+                section: "EnhancecordThemes",
                 label: "Themes",
                 element: require("@components/ThemeSettings/ThemesTab").default,
                 className: "vc-themes"
             },
             !IS_UPDATER_DISABLED && {
-                section: "EquicordUpdater",
+                section: "EnhancecordUpdater",
                 label: "Updater",
                 element: UpdaterTab,
                 className: "vc-updater"
             },
             {
-                section: "EquicordCloud",
+                section: "EnhancecordCloud",
                 label: "Cloud",
                 element: CloudTab,
                 className: "vc-cloud"
             },
             {
-                section: "EquicordSettingsSync",
+                section: "EnhancecordSettingsSync",
                 label: "Backup & Restore",
                 element: BackupAndRestoreTab,
                 className: "vc-backup-restore"
             },
             {
-                section: "EquicordPatchHelper",
+                section: "EnhancecordPatchHelper",
                 label: "Patch Helper",
                 element: PatchHelperTab,
                 className: "vc-patch-helper"
@@ -196,7 +196,7 @@ export default definePlugin({
     options: {
         settingsLocation: {
             type: OptionType.SELECT,
-            description: "Where to put the Equicord settings section",
+            description: "Where to put the Enhancecord settings section",
             options: [
                 { label: "At the very top", value: "top" },
                 { label: "Above the Nitro section", value: "aboveNitro", default: true },
@@ -234,7 +234,7 @@ export default definePlugin({
     getInfoRows() {
         const { electronVersion, chromiumVersion, additionalInfo } = this;
 
-        const rows = [`Equicord ${gitHash}${additionalInfo}`];
+        const rows = [`Enhancecord ${gitHash}${additionalInfo}`];
 
         if (electronVersion) rows.push(`Electron ${electronVersion}`);
         if (chromiumVersion) rows.push(`Chromium ${chromiumVersion}`);

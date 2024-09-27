@@ -17,8 +17,8 @@
 */
 
 import { shikiOnigasmSrc, shikiWorkerSrc } from "@utils/dependencies";
-import { WorkerClient } from "@vap/core/ipc";
-import type { IShikiTheme, IThemedToken } from "@vap/shiki";
+import { WorkerClient } from "@supercord/core/ipc";
+import type { IShikiTheme, IThemedToken } from "shiki";
 
 import { dispatchTheme } from "../hooks/useTheme";
 import type { ShikiSpec } from "../types";
@@ -89,9 +89,9 @@ export const shiki = {
         if (!lang || shiki.loadedLangs.has(lang.id)) return;
 
         await client.run("loadLanguage", {
+            // @ts-ignore
             lang: {
-                ...lang,
-                grammar: lang.grammar ?? await getGrammar(lang),
+                grammar: lang.grammar ?? await getGrammar(lang)
             }
         });
         shiki.loadedLangs.add(lang.id);

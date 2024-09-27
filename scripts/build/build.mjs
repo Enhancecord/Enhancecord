@@ -72,7 +72,7 @@ const globNativesPlugin = {
         });
 
         build.onLoad({ filter, namespace: "import-natives" }, async () => {
-            const pluginDirs = ["plugins", "userplugins", "equicordplugins"];
+            const pluginDirs = ["plugins", "userplugins", "enhancecordplugins"];
             let code = "";
             let natives = "\n";
             let i = 0;
@@ -210,12 +210,12 @@ await Promise.all([
         }
     }),
 
-    // Equicord Desktop main & renderer & preload
+    // Enhancecord Desktop main & renderer & preload
     esbuild.build({
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/main/index.ts")],
         outfile: "dist/equibop/main.js",
-        footer: { js: "//# sourceURL=EquicordMain\n" + sourceMapFooter("main") },
+        footer: { js: "//# sourceURL=EnhancecordMain\n" + sourceMapFooter("main") },
         sourcemap,
         define: {
             ...defines,
@@ -234,11 +234,11 @@ await Promise.all([
         outfile: "dist/equibop/renderer.js",
         format: "iife",
         target: ["esnext"],
-        footer: { js: "//# sourceURL=EquicordRenderer\n" + sourceMapFooter("renderer") },
+        footer: { js: "//# sourceURL=EnhancecordRenderer\n" + sourceMapFooter("renderer") },
         globalName: "Vencord",
         sourcemap,
         plugins: [
-            globPlugins("equicordDesktop"),
+            globPlugins("enhancecordDesktop"),
             ...commonOpts.plugins
         ],
         define: {
@@ -252,7 +252,7 @@ await Promise.all([
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/preload.ts")],
         outfile: "dist/equibop/preload.js",
-        footer: { js: "//# sourceURL=EquicordPreload\n" + sourceMapFooter("preload") },
+        footer: { js: "//# sourceURL=EnhancecordPreload\n" + sourceMapFooter("preload") },
         sourcemap,
         define: {
             ...defines,
@@ -271,15 +271,15 @@ await Promise.all([
 
 await Promise.all([
     writeFile("dist/desktop/package.json", JSON.stringify({
-        name: "equicord",
+        name: "enhancecord",
         main: "patcher.js"
     })),
     writeFile("dist/vesktop/package.json", JSON.stringify({
-        name: "equicord",
+        name: "enhancecord",
         main: "main.js"
     })),
     writeFile("dist/equibop/package.json", JSON.stringify({
-        name: "equicord",
+        name: "enhancecord",
         main: "main.js"
     }))
 ]);

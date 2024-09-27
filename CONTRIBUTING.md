@@ -36,9 +36,9 @@ Before starting your plugin:
 - No plugins that require the user to enter their own API key
 - Do not introduce new dependencies unless absolutely necessary and warranted
 
-## Improve Equicord itself
+## Improve Enhancecord itself
 
-If you have any ideas on how to improve Equicord itself, or want to propose a new plugin API, feel free to open a feature request so we can discuss.
+If you have any ideas on how to improve Enhancecord itself, or want to propose a new plugin API, feel free to open a feature request so we can discuss.
 
 Or if you notice any bugs or typos, feel free to fix them!
 

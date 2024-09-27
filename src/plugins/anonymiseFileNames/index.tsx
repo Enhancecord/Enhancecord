@@ -19,7 +19,7 @@
 import { Upload } from "@api/MessageEvents";
 import { definePluginSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
-import { Devs, EquicordDevs } from "@utils/constants";
+import { Devs, EnhancecordDevs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import { findByCodeLazy, findByPropsLazy } from "@webpack";
 
@@ -72,7 +72,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "AnonymiseFileNames",
-    authors: [Devs.fawn, EquicordDevs.thororen],
+    authors: [Devs.fawn, EnhancecordDevs.thororen],
     description: "Anonymise uploaded file names",
     patches: [
         {

@@ -9,7 +9,7 @@ env:
 
 jobs:
     Build:
-        name: Build Equicord
+        name: Build Enhancecord
         runs-on: ubuntu-latest
 
         steps:
@@ -35,8 +35,8 @@ jobs:
             - name: Generate plugin list
               run: pnpm generatePluginJson dist/plugins.json dist/plugin-readmes.json
 
-            - name: Generate Equicord plugin list
-              run: pnpm generateEquicordPluginJson dist/equicordplugins.json
+            - name: Generate Enhancecord plugin list
+              run: pnpm generateEnhancecordPluginJson dist/enhancecordplugins.json
 
             - name: Collect files to be released
               run: |
@@ -58,14 +58,14 @@ jobs:
                   done
                   for file in equibop/*; do
                     filename=$(basename "$file")
-                    cp "$file" "release/equicordDesktop${filename^}"
+                    cp "$file" "release/enhancecordDesktop${filename^}"
                   done
 
                   find release -size 0 -delete
                   rm release/package.json
                   rm release/*.map
 
-            - name: Upload Equicord
+            - name: Upload Enhancecord
               run: |
                 gh release upload latest --clobber dist/release/*
 
@@ -76,11 +76,11 @@ jobs:
                 git clone https://$USERNAME:$API_TOKEN@github.com/$GH_REPO.git upload
                 cd upload
                 rm plugins.json
-                cp -r ../dist/equicordplugins.json plugins.json
+                cp -r ../dist/enhancecordplugins.json plugins.json
                 git add -A
                 git commit -m "Plugins for https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
                 git push --force https://$USERNAME:$API_TOKEN@github.com/$GH_REPO.git
               env:
                 API_TOKEN: ${{ secrets.ETOKEN }}
-                GH_REPO: Equicord/Equibored
+                GH_REPO: Enhancecord/Equibored
                 USERNAME: thororen1234

@@ -21,9 +21,9 @@ import type {
     IShikiTheme,
     IThemedToken,
     IThemeRegistration,
-} from "@vap/shiki";
+} from "shiki";
 
-/** This must be atleast a subset of the `@vap/shiki-worker` spec */
+/** This must be atleast a subset of the `@supercord/shiki-worker` spec */
 export type ShikiSpec = {
     setOnigasm: ({ wasm }: { wasm: string; }) => Promise<void>;
     setHighlighter: ({ theme, langs }: {

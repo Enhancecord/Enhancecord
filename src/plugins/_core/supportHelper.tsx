@@ -27,7 +27,7 @@ import { Devs, SUPPORT_CHANNEL_ID, SUPPORT_CHANNEL_IDS, VC_SUPPORT_CHANNEL_ID } 
 import { sendMessage } from "@utils/discord";
 import { Logger } from "@utils/Logger";
 import { Margins } from "@utils/margins";
-import { isEquicordPluginDev, isPluginDev, tryOrElse } from "@utils/misc";
+import { isEnhancecordPluginDev, isPluginDev, tryOrElse } from "@utils/misc";
 import { relaunch } from "@utils/native";
 import { onlyOnce } from "@utils/onlyOnce";
 import { makeCodeblock } from "@utils/text";
@@ -41,23 +41,23 @@ import plugins, { PluginMeta } from "~plugins";
 import SettingsPlugin from "./settings";
 
 const VENCORD_GUILD_ID = "1015060230222131221";
-const EQUICORD_GUILD_ID = "1015060230222131221";
+const ENHANCECORD_GUILD_ID = "1015060230222131221";
 const VENBOT_USER_ID = "1017176847865352332";
 const KNOWN_ISSUES_CHANNEL_ID = "1222936386626129920";
 const CodeBlockRe = /```js\n(.+?)```/s;
 
 const AllowedChannelIds = [
     SUPPORT_CHANNEL_ID,
-    "1173659827881390160", // Equicord > #dev
-    "1173342942858055721", // Equicord > #support
+    "1173659827881390160", // Enhancecord > #dev
+    "1173342942858055721", // Enhancecord > #support
 ];
 
 const TrustedRolesIds = [
     "1026534353167208489", // contributor
     "1026504932959977532", // regular
     "1042507929485586532", // donor
-    "1173520023239786538", // Equicord Team
-    "1222677964760682556", // Equicord Contributor
+    "1173520023239786538", // Enhancecord Team
+    "1222677964760682556", // Enhancecord Contributor
     "1173343399470964856", // Vencord Contributor
 ];
 
@@ -90,8 +90,8 @@ async function generateDebugInfoMessage() {
     })();
 
     const info = {
-        Equicord:
-            `v${VERSION} • [${gitHash}](<https://github.com/Equicord/Equicord/commit/${gitHash}>)` +
+        Enhancecord:
+            `v${VERSION} • [${gitHash}](<https://github.com/Enhancecord/Enhancecord/commit/${gitHash}>)` +
             `${SettingsPlugin.additionalInfo} - ${Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(BUILD_TIMESTAMP)}`,
         Client: `${RELEASE_CHANNEL} ~ ${client}`,
         Platform: window.navigator.platform
@@ -104,7 +104,7 @@ async function generateDebugInfoMessage() {
     const commonIssues = {
         "NoRPC enabled": Vencord.Plugins.isPluginEnabled("NoRPC"),
         "Activity Sharing disabled": tryOrElse(() => !ShowCurrentGame.getSetting(), false),
-        "Equicord DevBuild": !IS_STANDALONE,
+        "Enhancecord DevBuild": !IS_STANDALONE,
         "Has UserPlugins": Object.values(PluginMeta).some(m => m.userPlugin),
         "More than two weeks out of date": BUILD_TIMESTAMP < Date.now() - 12096e5,
     };
@@ -163,15 +163,15 @@ export default definePlugin({
 
     commands: [
         {
-            name: "equicord-debug",
-            description: "Send Equicord debug info",
-            predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || isEquicordPluginDev(UserStore.getCurrentUser()?.id) || AllowedChannelIds.includes(ctx.channel.id),
+            name: "enhancecord-debug",
+            description: "Send Enhancecord debug info",
+            predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || isEnhancecordPluginDev(UserStore.getCurrentUser()?.id) || AllowedChannelIds.includes(ctx.channel.id),
             execute: async () => ({ content: await generateDebugInfoMessage() })
         },
         {
-            name: "equicord-plugins",
-            description: "Send Equicord plugin list",
-            predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || isEquicordPluginDev(UserStore.getCurrentUser()?.id) || AllowedChannelIds.includes(ctx.channel.id),
+            name: "enhancecord-plugins",
+            description: "Send Enhancecord plugin list",
+            predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || isEnhancecordPluginDev(UserStore.getCurrentUser()?.id) || AllowedChannelIds.includes(ctx.channel.id),
             execute: () => ({ content: generatePluginList() })
         }
     ],
@@ -191,16 +191,16 @@ export default definePlugin({
                         <img src="https://media.tenor.com/QtGqjwBpRzwAAAAi/wumpus-dancing.gif" />
                         <Forms.FormText>Before you ask for help,</Forms.FormText>
                         <Forms.FormText>Check for updates and if this</Forms.FormText>
-                        <Forms.FormText>issue could be caused by Equicord!</Forms.FormText>
+                        <Forms.FormText>issue could be caused by Enhancecord!</Forms.FormText>
                     </div>,
-                    confirmText: "Go to Equicord Support",
+                    confirmText: "Go to Enhancecord Support",
                     cancelText: "Okay continue",
                     onConfirm: () => VencordNative.native.openExternal("https://discord.gg/npnv52UQwY"),
                 });
             }
 
             const selfId = UserStore.getCurrentUser()?.id;
-            if (!selfId || isPluginDev(selfId) || isEquicordPluginDev(selfId)) return;
+            if (!selfId || isPluginDev(selfId) || isEnhancecordPluginDev(selfId)) return;
 
             if (!IS_UPDATER_DISABLED) {
                 await checkForUpdatesOnce().catch(() => { });
@@ -209,7 +209,7 @@ export default definePlugin({
                     return Alerts.show({
                         title: "Hold on!",
                         body: <div>
-                            <Forms.FormText>You are using an outdated version of Equicord! Chances are, your issue is already fixed.</Forms.FormText>
+                            <Forms.FormText>You are using an outdated version of Enhancecord! Chances are, your issue is already fixed.</Forms.FormText>
                             <Forms.FormText className={Margins.top8}>
                                 Please first update before asking for support!
                             </Forms.FormText>
@@ -224,16 +224,16 @@ export default definePlugin({
             }
 
             // @ts-ignore outdated type
-            const roles = GuildMemberStore.getSelfMember(VENCORD_GUILD_ID)?.roles || GuildMemberStore.getSelfMember(EQUICORD_GUILD_ID)?.roles;
+            const roles = GuildMemberStore.getSelfMember(VENCORD_GUILD_ID)?.roles || GuildMemberStore.getSelfMember(ENHANCECORD_GUILD_ID)?.roles;
             if (!roles || TrustedRolesIds.some(id => roles.includes(id))) return;
 
             if (!IS_WEB && IS_UPDATER_DISABLED) {
                 return Alerts.show({
                     title: "Hold on!",
                     body: <div>
-                        <Forms.FormText>You are using an externally updated Equicord version, the ability to help you here may be limited.</Forms.FormText>
+                        <Forms.FormText>You are using an externally updated Enhancecord version, the ability to help you here may be limited.</Forms.FormText>
                         <Forms.FormText className={Margins.top8}>
-                            Please join the <Link href="https://discord.gg/5Xh2W87egW">Equicord Server</Link> for support,
+                            Please join the <Link href="https://discord.gg/5Xh2W87egW">Enhancecord Server</Link> for support,
                             or if this issue persists on Vencord, continue on.
                         </Forms.FormText>
                     </div>
@@ -244,11 +244,11 @@ export default definePlugin({
                 return Alerts.show({
                     title: "Hold on!",
                     body: <div>
-                        <Forms.FormText>You are using a custom build of Equicord, which we do not provide support for!</Forms.FormText>
+                        <Forms.FormText>You are using a custom build of Enhancecord, which we do not provide support for!</Forms.FormText>
 
                         <Forms.FormText className={Margins.top8}>
-                            We only provide support for <Link href="https://github.com/Equicord/Equicord">official builds</Link>.
-                            Either <Link href="https://github.com/Equicord/Equilotl">switch to an official build</Link> or figure your issue out yourself.
+                            We only provide support for <Link href="https://github.com/Enhancecord/Enhancecord">official builds</Link>.
+                            Either <Link href="https://github.com/Enhancecord/Equilotl">switch to an official build</Link> or figure your issue out yourself.
                         </Forms.FormText>
 
                         <Text variant="text-md/bold" className={Margins.top8}>You will be banned from receiving support if you ignore this rule.</Text>
@@ -262,8 +262,8 @@ export default definePlugin({
     },
 
     ContributorDmWarningCard: ErrorBoundary.wrap(({ userId }) => {
-        if (!isPluginDev(userId) || !isEquicordPluginDev(userId)) return null;
-        if (RelationshipStore.isFriend(userId) || isPluginDev(UserStore.getCurrentUser()?.id) || isEquicordPluginDev(UserStore.getCurrentUser()?.id)) return null;
+        if (!isPluginDev(userId) || !isEnhancecordPluginDev(userId)) return null;
+        if (RelationshipStore.isFriend(userId) || isPluginDev(UserStore.getCurrentUser()?.id) || isEnhancecordPluginDev(UserStore.getCurrentUser()?.id)) return null;
 
         return (
             <Card className={`vc-plugins-restart-card ${Margins.top8}`}>
@@ -276,7 +276,7 @@ export default definePlugin({
     }, { noop: true }),
 
     start() {
-        addAccessory("equicord-debug", props => {
+        addAccessory("enhancecord-debug", props => {
             const buttons = [] as JSX.Element[];
 
             const shouldAddUpdateButton =
@@ -310,19 +310,19 @@ export default definePlugin({
             }
 
             if (props.channel.id === SUPPORT_CHANNEL_ID) {
-                if (props.message.content.includes("/equicord-debug") || props.message.content.includes("/equicord-plugins")) {
+                if (props.message.content.includes("/enhancecord-debug") || props.message.content.includes("/enhancecord-plugins")) {
                     buttons.push(
                         <Button
                             key="vc-dbg"
                             onClick={async () => sendMessage(props.channel.id, { content: await generateDebugInfoMessage() })}
                         >
-                            Run /equicord-debug
+                            Run /enhancecord-debug
                         </Button>,
                         <Button
                             key="vc-plg-list"
                             onClick={async () => sendMessage(props.channel.id, { content: generatePluginList() })}
                         >
-                            Run /equicord-plugins
+                            Run /enhancecord-plugins
                         </Button>
                     );
                 }

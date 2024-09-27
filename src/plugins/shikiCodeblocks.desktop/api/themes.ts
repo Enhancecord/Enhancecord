@@ -16,36 +16,47 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { IShikiTheme } from "@vap/shiki";
+import { IShikiTheme } from "shiki";
 
-export const SHIKI_REPO = "shikijs/shiki";
-export const SHIKI_REPO_COMMIT = "0b28ad8ccfbf2615f2d9d38ea8255416b8ac3043";
-export const shikiRepoTheme = (name: string) => `https://raw.githubusercontent.com/${SHIKI_REPO}/${SHIKI_REPO_COMMIT}/packages/shiki/themes/${name}.json`;
+export const SHIKI_REPO = "shikijs/textmate-grammars-themes";
+export const SHIKI_REPO_COMMIT = "main";
+export const shikiRepoTheme = (name: string) => `https://raw.githubusercontent.com/${SHIKI_REPO}/${SHIKI_REPO_COMMIT}/packages/tm-themes/themes/${name}.json`;
 
 export const themes = {
-    // Default
-    DarkPlus: shikiRepoTheme("dark-plus"),
-
     // Dev Choices
     MaterialCandy: "https://raw.githubusercontent.com/millsp/material-candy/master/material-candy.json",
 
     // More from Shiki repo
+    AyuDark: shikiRepoTheme("ayu-dark"),
+    CatppuccinFrappe: shikiRepoTheme("catppuccin-frappe"),
+    CatppuccinLatte: shikiRepoTheme("catppuccin-latte"),
+    CatppuccinMacchiato: shikiRepoTheme("catppuccin-macchiato"),
+    CatppuccinMocha: shikiRepoTheme("catppuccin-mocha"),
+    DarkPlus: shikiRepoTheme("dark-plus"),
     DraculaSoft: shikiRepoTheme("dracula-soft"),
     Dracula: shikiRepoTheme("dracula"),
+    EverforestDark: shikiRepoTheme("everforest-dark"),
+    EverforestLight: shikiRepoTheme("everforest-light"),
+    GithubDarkDefault: shikiRepoTheme("github-dark-default"),
     GithubDarkDimmed: shikiRepoTheme("github-dark-dimmed"),
+    GithubDarkHighContrast: shikiRepoTheme("github-dark-high-contrast"),
     GithubDark: shikiRepoTheme("github-dark"),
+    GithubLightDefault: shikiRepoTheme("github-light-default"),
+    GithubLightHighContrast: shikiRepoTheme("github-light-high-contrast"),
     GithubLight: shikiRepoTheme("github-light"),
     LightPlus: shikiRepoTheme("light-plus"),
-    MaterialDarker: shikiRepoTheme("material-darker"),
-    MaterialDefault: shikiRepoTheme("material-default"),
-    MaterialLighter: shikiRepoTheme("material-lighter"),
-    MaterialOcean: shikiRepoTheme("material-ocean"),
-    MaterialPalenight: shikiRepoTheme("material-palenight"),
+    MaterialThemeDarker: shikiRepoTheme("material-theme-darker"),
+    MaterialThemeLighter: shikiRepoTheme("material-theme-lighter"),
+    MaterialThemeOcean: shikiRepoTheme("material-theme-ocean"),
+    MaterialThemePalenight: shikiRepoTheme("material-theme-palenight"),
+    MaterialTheme: shikiRepoTheme("material-theme"),
     MinDark: shikiRepoTheme("min-dark"),
     MinLight: shikiRepoTheme("min-light"),
     Monokai: shikiRepoTheme("monokai"),
+    NightOwl: shikiRepoTheme("night-owl"),
     Nord: shikiRepoTheme("nord"),
     OneDarkPro: shikiRepoTheme("one-dark-pro"),
+    OneLight: shikiRepoTheme("one-light"),
     Poimandres: shikiRepoTheme("poimandres"),
     RosePineDawn: shikiRepoTheme("rose-pine-dawn"),
     RosePineMoon: shikiRepoTheme("rose-pine-moon"),
@@ -54,6 +65,8 @@ export const themes = {
     SlackOchin: shikiRepoTheme("slack-ochin"),
     SolarizedDark: shikiRepoTheme("solarized-dark"),
     SolarizedLight: shikiRepoTheme("solarized-light"),
+    Synthwave84: shikiRepoTheme('synthwave-84'),
+    TokyoNight: shikiRepoTheme("tokyo-night"),
     VitesseDark: shikiRepoTheme("vitesse-dark"),
     VitesseLight: shikiRepoTheme("vitesse-light"),
     CssVariables: shikiRepoTheme("css-variables"),

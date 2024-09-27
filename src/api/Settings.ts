@@ -108,7 +108,7 @@ const DefaultSettings: Settings = {
 
     cloud: {
         authenticated: false,
-        url: "https://cloud.equicord.fyi/",
+        url: "https://cloud.enhancecord.fyi/",
         settingsSync: false,
         settingsSyncVersion: 0
     },

@@ -39,12 +39,12 @@ interface PluginData {
     hasCommands: boolean;
     required: boolean;
     enabledByDefault: boolean;
-    target: "discordDesktop" | "vencordDesktop" | "equicordDesktop" | "desktop" | "web" | "dev";
+    target: "discordDesktop" | "vencordDesktop" | "enhancecordDesktop" | "desktop" | "web" | "dev";
     filePath: string;
 }
 
 const devs = {} as Record<string, Dev>;
-const equicordDevs = {} as Record<string, Dev>;
+const enhancecordDevs = {} as Record<string, Dev>;
 
 function getName(node: NamedDeclaration) {
     return node.name && isIdentifier(node.name) ? node.name.text : undefined;
@@ -91,26 +91,26 @@ function parseDevs() {
     throw new Error("Could not find Devs constant");
 }
 
-function parseEquicordDevs() {
+function parseEnhancecordDevs() {
     const file = createSourceFile("constants.ts", readFileSync("src/utils/constants.ts", "utf8"), ScriptTarget.Latest);
 
     for (const child of file.getChildAt(0).getChildren()) {
         if (!isVariableStatement(child)) continue;
 
-        const devsDeclaration = child.declarationList.declarations.find(d => hasName(d, "EquicordDevs"));
+        const devsDeclaration = child.declarationList.declarations.find(d => hasName(d, "EnhancecordDevs"));
         if (!devsDeclaration?.initializer || !isCallExpression(devsDeclaration.initializer)) continue;
 
         const value = devsDeclaration.initializer.arguments[0];
 
-        if (!isSatisfiesExpression(value) || !isObjectLiteralExpression(value.expression)) throw new Error("Failed to parse EquicordDevs: not an object literal");
+        if (!isSatisfiesExpression(value) || !isObjectLiteralExpression(value.expression)) throw new Error("Failed to parse EnhancecordDevs: not an object literal");
 
         for (const prop of value.expression.properties) {
             const name = (prop.name as Identifier).text;
             const value = isPropertyAssignment(prop) ? prop.initializer : prop;
 
-            if (!isObjectLiteralExpression(value)) throw new Error(`Failed to parse EquicordDevs: ${name} is not an object literal`);
+            if (!isObjectLiteralExpression(value)) throw new Error(`Failed to parse EnhancecordDevs: ${name} is not an object literal`);
 
-            equicordDevs[name] = {
+            enhancecordDevs[name] = {
                 name: (getObjectProp(value, "name") as StringLiteral).text,
                 id: (getObjectProp(value, "id") as BigIntLiteral).text.slice(0, -1)
             };
@@ -119,7 +119,7 @@ function parseEquicordDevs() {
         return;
     }
 
-    throw new Error("Could not find EquicordDevs constant");
+    throw new Error("Could not find EnhancecordDevs constant");
 }
 
 async function parseFile(fileName: string) {
@@ -166,7 +166,7 @@ async function parseFile(fileName: string) {
                     if (!isArrayLiteralExpression(value)) throw fail("authors is not an array literal");
                     data.authors = value.elements.map(e => {
                         if (!isPropertyAccessExpression(e)) throw fail("authors array contains non-property access expressions");
-                        const d = devs[getName(e)!] || equicordDevs[getName(e)!];
+                        const d = devs[getName(e)!] || enhancecordDevs[getName(e)!];
                         if (!d) throw fail(`couldn't look up author ${getName(e)}`);
                         return d;
                     });
@@ -195,7 +195,7 @@ async function parseFile(fileName: string) {
 
         const target = getPluginTarget(fileName);
         if (target) {
-            if (!["web", "discordDesktop", "vencordDesktop", "equicordDesktop", "desktop", "dev"].includes(target)) throw fail(`invalid target ${target}`);
+            if (!["web", "discordDesktop", "vencordDesktop", "enhancecordDesktop", "desktop", "dev"].includes(target)) throw fail(`invalid target ${target}`);
             data.target = target as any;
         }
 
@@ -237,12 +237,12 @@ function isPluginFile({ name }: { name: string; }) {
 
 (async () => {
     parseDevs();
-    parseEquicordDevs();
+    parseEnhancecordDevs();
 
     const plugins = [] as PluginData[];
     const readmes = {} as Record<string, string>;
 
-    await Promise.all(["src/plugins", "src/plugins/_core", "src/equicordplugins"].flatMap(dir =>
+    await Promise.all(["src/plugins", "src/plugins/_core", "src/enhancecordplugins"].flatMap(dir =>
         readdirSync(dir, { withFileTypes: true })
             .filter(isPluginFile)
             .map(async dirent => {

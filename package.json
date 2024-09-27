@@ -1,18 +1,18 @@
 {
-    "name": "equicord",
+    "name": "enhancecord",
     "private": "true",
     "version": "1.10.3",
     "description": "The other cutest Discord client mod",
-    "homepage": "https://github.com/Equicord/Equicord#readme",
+    "homepage": "https://github.com/Enhancecord/Enhancecord#readme",
     "bugs": {
-        "url": "https://github.com/Equicord/Equicord/issues"
+        "url": "https://github.com/Enhancecord/Enhancecord/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Equicord/Equicord.git"
+        "url": "git+https://github.com/Enhancecord/Enhancecord.git"
     },
     "license": "GPL-3.0-or-later",
-    "author": "Equicord",
+    "author": "Enhancecord",
     "scripts": {
         "build": "node --require=./scripts/suppressExperimentalWarnings.js scripts/build/build.mjs",
         "buildStandalone": "pnpm build --standalone",
@@ -24,7 +24,7 @@
         "dev": "pnpm watch",
         "watchWeb": "pnpm buildWeb --watch",
         "generatePluginJson": "tsx scripts/generatePluginList.ts",
-        "generateEquicordPluginJson": "tsx scripts/generateEquicordPluginList.ts",
+        "generateEnhancecordPluginJson": "tsx scripts/generateEnhancecordPluginList.ts",
         "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/vencord-types",
         "inject": "node scripts/runInstaller.mjs",
         "uninject": "node scripts/runInstaller.mjs",
@@ -37,6 +37,7 @@
     },
     "dependencies": {
         "@sapphi-red/web-noise-suppressor": "0.3.5",
+        "@supercord/core": "^0.1.6",
         "@types/less": "^3.0.6",
         "@types/stylus": "^0.48.42",
         "@types/tinycolor2": "^1.4.6",
@@ -47,13 +48,14 @@
         "jsqr": "1.4.0",
         "monaco-editor": "^0.50.0",
         "nanoid": "^5.0.7",
-        "usercss-meta": "^0.12.0",
         "openai": "^4.30.0",
+        "shiki": "~0.14.3",
+        "usercss-meta": "^0.12.0",
         "virtual-merge": "^1.0.1"
     },
     "devDependencies": {
-        "@stylistic/eslint-plugin": "^2.6.1",
         "@electron/asar": "^3.2.10",
+        "@stylistic/eslint-plugin": "^2.6.1",
         "@types/chrome": "^0.0.269",
         "@types/diff": "^5.2.1",
         "@types/lodash": "^4.17.7",
