@@ -4,7 +4,7 @@
 [![Tests](https://github.com/Enhancecord/Enhancecord/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Enhancecord/Enhancecord/actions/workflows/test.yml)
 [![Discord](https://img.shields.io/discord/1207691698386501634.svg?color=768AD4&label=Discord&logo=discord&logoColor=white)](https://discord.gg/5Xh2W87egW)
 
-Enhancecord is a fork of [Vencord](https://github.com/Vendicated/Vencord), with over 300+ plugins.
+Enhancecord is a fork of [Vencord](https://github.com/Vendicated/Vencord), with over 300+ plugins :).
 
 You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, changes, chat or even support.<br><br></br>
 
