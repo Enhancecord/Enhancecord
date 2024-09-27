@@ -71,3 +71,5 @@ jobs:
             - name: Upload Enhancecord
               run: |
                 gh release upload latest --clobber dist/release/*
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
