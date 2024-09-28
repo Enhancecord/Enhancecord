@@ -1,7 +1,10 @@
 name: Sync Vencord Main
 
+permissions:
+    contents: write
+
 env:
-  WORKFLOW_TOKEN: ${{ secrets.ETOKEN }}
+  WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   UPSTREAM_URL: "https://github.com/Vendicated/Vencord.git"
   UPSTREAM_BRANCH: "main"
   DOWNSTREAM_BRANCH: "main"
