@@ -66,3 +66,5 @@ export default definePlugin({
         document.removeEventListener("keydown", this.onKey);
     }
 });
+
+/* Win Button */
