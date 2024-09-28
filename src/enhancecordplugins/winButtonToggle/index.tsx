@@ -23,6 +23,7 @@ import definePlugin, { OptionType } from "@utils/types";
 export const toggleButton = () => {
     document.querySelectorAll(".platform-win .winButton_a934d8").forEach(btn => {
         const btnFixed = btn as HTMLElement;
+        /* Enable and Disable */
         btnFixed.style.display = settings.store.enableButton ? 'flex' : 'none';
     });
 };
