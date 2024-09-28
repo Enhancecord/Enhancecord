@@ -588,6 +588,10 @@ export const EnhancecordDevs = Object.freeze({
         name: "nobody",
         id: 0n
     },
+    jw: {
+        name: "jw0902",
+        id: 780493281552760862n
+    },
     thororen: {
         name: "thororen",
         id: 848339671629299742n

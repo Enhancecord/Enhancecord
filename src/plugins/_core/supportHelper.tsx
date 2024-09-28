@@ -248,7 +248,7 @@ export default definePlugin({
 
                         <Forms.FormText className={Margins.top8}>
                             We only provide support for <Link href="https://github.com/Enhancecord/Enhancecord">official builds</Link>.
-                            Either <Link href="https://github.com/Enhancecord/Equilotl">switch to an official build</Link> or figure your issue out yourself.
+                            Either <Link href="https://github.com/Enhancecord/Enhancelotl">switch to an official build</Link> or figure your issue out yourself.
                         </Forms.FormText>
 
                         <Text variant="text-md/bold" className={Margins.top8}>You will be banned from receiving support if you ignore this rule.</Text>

@@ -143,14 +143,14 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 ## Installing / Uninstalling
 
 Windows
-- [GUI](https://github.com/Enhancecord/Equilotl/releases/latest/download/Equilotl.exe)
-- [CLI](https://github.com/Enhancecord/Equilotl/releases/latest/download/EquilotlCli.exe)
+- [GUI](https://github.com/Enhancecord/Enhancelotl/releases/latest/download/Enhancelotl.exe)
+- [CLI](https://github.com/Enhancecord/Enhancelotl/releases/latest/download/EnhancelotlCli.exe)
 
 MacOS
-- [GUI](https://github.com/Enhancecord/Equilotl/releases/latest/download/Equilotl.MacOS.zip)
+- [GUI](https://github.com/Enhancecord/Enhancelotl/releases/latest/download/Enhancelotl.MacOS.zip)
 
 Linux
-- [CLI](https://github.com/Enhancecord/Equilotl/releases/latest/download/EquilotlCli-Linux)
+- [CLI](https://github.com/Enhancecord/Enhancelotl/releases/latest/download/EnhancelotlCli-Linux)
 
 
 ## Installing Enhancecord Devbuild
