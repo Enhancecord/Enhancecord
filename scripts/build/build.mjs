@@ -117,7 +117,7 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "true",
             IS_VESKTOP: "false",
-            IS_EQUIBOP: "false"
+            IS_ENHANCEBOP: "false"
         },
         plugins: [
             ...nodeCommonOpts.plugins,
@@ -141,7 +141,7 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "true",
             IS_VESKTOP: "false",
-            IS_EQUIBOP: "false"
+            IS_ENHANCEBOP: "false"
         }
     }),
     esbuild.build({
@@ -154,7 +154,7 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "true",
             IS_VESKTOP: "false",
-            IS_EQUIBOP: "false"
+            IS_ENHANCEBOP: "false"
         }
     }),
 
@@ -169,7 +169,7 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "false",
             IS_VESKTOP: "true",
-            IS_EQUIBOP: "false"
+            IS_ENHANCEBOP: "false"
         },
         plugins: [
             ...nodeCommonOpts.plugins,
@@ -193,7 +193,7 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "false",
             IS_VESKTOP: "true",
-            IS_EQUIBOP: "false"
+            IS_ENHANCEBOP: "false"
         }
     }),
     esbuild.build({
@@ -206,7 +206,7 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "false",
             IS_VESKTOP: "true",
-            IS_EQUIBOP: "false"
+            IS_ENHANCEBOP: "false"
         }
     }),
 
@@ -214,14 +214,14 @@ await Promise.all([
     esbuild.build({
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/main/index.ts")],
-        outfile: "dist/equibop/main.js",
+        outfile: "dist/enhancebop/main.js",
         footer: { js: "//# sourceURL=EnhancecordMain\n" + sourceMapFooter("main") },
         sourcemap,
         define: {
             ...defines,
             IS_DISCORD_DESKTOP: "false",
             IS_VESKTOP: "false",
-            IS_EQUIBOP: "true"
+            IS_ENHANCEBOP: "true"
         },
         plugins: [
             ...nodeCommonOpts.plugins,
@@ -231,7 +231,7 @@ await Promise.all([
     esbuild.build({
         ...commonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/Vencord.ts")],
-        outfile: "dist/equibop/renderer.js",
+        outfile: "dist/enhancebop/renderer.js",
         format: "iife",
         target: ["esnext"],
         footer: { js: "//# sourceURL=EnhancecordRenderer\n" + sourceMapFooter("renderer") },
@@ -245,20 +245,20 @@ await Promise.all([
             ...defines,
             IS_DISCORD_DESKTOP: "false",
             IS_VESKTOP: "false",
-            IS_EQUIBOP: "true"
+            IS_ENHANCEBOP: "true"
         }
     }),
     esbuild.build({
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/preload.ts")],
-        outfile: "dist/equibop/preload.js",
+        outfile: "dist/enhancebop/preload.js",
         footer: { js: "//# sourceURL=EnhancecordPreload\n" + sourceMapFooter("preload") },
         sourcemap,
         define: {
             ...defines,
             IS_DISCORD_DESKTOP: "false",
             IS_VESKTOP: "false",
-            IS_EQUIBOP: "true"
+            IS_ENHANCEBOP: "true"
         }
     }),
 ]).catch(err => {
@@ -278,7 +278,7 @@ await Promise.all([
         name: "enhancecord",
         main: "main.js"
     })),
-    writeFile("dist/equibop/package.json", JSON.stringify({
+    writeFile("dist/enhancebop/package.json", JSON.stringify({
         name: "enhancecord",
         main: "main.js"
     }))
@@ -286,6 +286,6 @@ await Promise.all([
 
 await Promise.all([
     createPackage("dist/desktop", "dist/desktop.asar"),
-    createPackage("dist/equibop", "dist/equibop.asar"),
+    createPackage("dist/enhancebop", "dist/enhancebop.asar"),
     createPackage("dist/vesktop", "dist/vesktop.asar")
 ]);

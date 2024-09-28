@@ -30,9 +30,8 @@ import { closeModal, Modals, openModal } from "@utils/modal";
 import definePlugin from "@utils/types";
 import { Forms, Toasts, UserStore } from "@webpack/common";
 import { User } from "discord-types/general";
-
 const CONTRIBUTOR_BADGE = "https://vencord.dev/assets/favicon.png";
-const ENHANCECORD_CONTRIBUTOR_BADGE = "https://i.imgur.com/57ATLZu.png";
+const ENHANCECORD_CONTRIBUTOR_BADGE = "https://i.imgur.com/csrIZSG.png";
 
 const ContributorBadge: ProfileBadge = {
     description: "Vencord Contributor",
@@ -62,7 +61,7 @@ async function loadBadges(url: string, noCache = false) {
 
 async function loadAllBadges(noCache = false) {
     const vencordBadges = await loadBadges("https://badges.vencord.dev/badges.json", noCache);
-    const enhancecordBadges = await loadBadges("https://raw.githubusercontent.com/Enhancecord/Equibored/main/badges.json", noCache);
+    const enhancecordBadges = await loadBadges("https://raw.githubusercontent.com/Equicord/Equibored/main/badges.json", noCache);
 
     DonorBadges = vencordBadges;
     EnhancecordDonorBadges = enhancecordBadges;
@@ -177,13 +176,13 @@ export default definePlugin({
                                 <Flex>
                                     <img
                                         role="presentation"
-                                        src="https://cdn.discordapp.com/emojis/1026533070955872337.png"
+                                        src="https://cdn.discordapp.com/attachments/1245975852597117062/1289687782780047370/Icone.png?ex=66f9bad8&is=66f86958&hm=c5868147c4354229539203e6ed54b003d16134824aabf6624b2bdffeb074b6ff&"
                                         alt=""
                                         style={{ margin: "auto" }}
                                     />
                                     <img
                                         role="presentation"
-                                        src="https://cdn.discordapp.com/emojis/1026533090627174460.png"
+                                        src="https://cdn.discordapp.com/attachments/1245975852597117062/1289689242204639314/icon_1.png?ex=66f9bc34&is=66f86ab4&hm=35f1e06de2afc7b14d84360614b97e38ad48d35f53d6ec80ae62e6f3d7c437ec&"
                                         alt=""
                                         style={{ margin: "auto" }}
                                     />

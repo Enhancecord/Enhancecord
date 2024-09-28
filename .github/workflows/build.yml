@@ -59,7 +59,7 @@ jobs:
                     filename=$(basename "$file")
                     cp "$file" "release/vencordDesktop${filename^}"
                   done
-                  for file in equibop/*; do
+                  for file in enhancebop/*; do
                     filename=$(basename "$file")
                     cp "$file" "release/enhancecordDesktop${filename^}"
                   done

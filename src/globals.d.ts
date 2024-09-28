@@ -41,7 +41,7 @@ declare global {
     export var IS_COMPANION_TEST: boolean;
     export var IS_DISCORD_DESKTOP: boolean;
     export var IS_VESKTOP: boolean;
-    export var IS_EQUIBOP: boolean;
+    export var IS_ENHANCEBOP: boolean;
     export var VERSION: string;
     export var BUILD_TIMESTAMP: number;
 

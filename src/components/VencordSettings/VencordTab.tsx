@@ -35,8 +35,8 @@ import { SettingsTab, wrapTab } from "./shared";
 
 const cl = classNameFactory("vc-settings-");
 
-const DEFAULT_DONATE_IMAGE = "https://cdn.discordapp.com/emojis/1026533090627174460.png";
-const SHIGGY_DONATE_IMAGE = "https://i.imgur.com/57ATLZu.png";
+const DEFAULT_DONATE_IMAGE = "https://cdn.discordapp.com/attachments/1245975852597117062/1289689242204639314/icon_1.png?ex=66f9bc34&is=66f86ab4&hm=35f1e06de2afc7b14d84360614b97e38ad48d35f53d6ec80ae62e6f3d7c437ec&";
+const SHIGGY_DONATE_IMAGE = "https://i.imgur.com/csrIZSG.png";
 
 type KeysOfType<Object, Type> = {
     [K in keyof Object]: Object[K] extends Type ? K : never;

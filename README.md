@@ -1,6 +1,6 @@
 # Enhancecord [<img src="./browser/icon.png" width="225" align="left" alt="Enhancecord">](https://github.com/Enhancecord/Enhancecord)
 
-[![Equibop](https://img.shields.io/badge/Equibop-grey?style=flat)](https://github.com/Enhancecord/Equibop)
+[![Enhancebop](https://img.shields.io/badge/Enhancebop-grey?style=flat)](https://github.com/Enhancecord/Enhancebop)
 [![Tests](https://github.com/Enhancecord/Enhancecord/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Enhancecord/Enhancecord/actions/workflows/test.yml)
 [![Discord](https://img.shields.io/discord/1207691698386501634.svg?color=768AD4&label=Discord&logo=discord&logoColor=white)](https://discord.gg/5Xh2W87egW)
 
@@ -101,7 +101,7 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - ReplaceActivityTypes by Nyako
 - ReplyPingControl by ant0n & MrDiamond
 - RPCStats by Samwich
-- ScreenRecorder by AutumnVN (Vesktop & Equibop only)
+- ScreenRecorder by AutumnVN (Vesktop & Enhancebop only)
 - SearchFix by Jaxx
 - SekaiStickers by MaiKokain
 - Shakespearean by vmohammad (Dev build only)

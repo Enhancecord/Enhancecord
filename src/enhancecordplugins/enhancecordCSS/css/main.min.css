@@ -54,7 +54,7 @@
     --si-enhancecordcloud: url("https://minidiscordthemes.github.io/SettingsIcons/svg/vencordcloud.svg");
     --si-enhancecordsettingssync: url("https://minidiscordthemes.github.io/SettingsIcons/svg/vencordsettingssync.svg");
     --si-enhancecordpatchhelper: url("https://minidiscordthemes.github.io/SettingsIcons/svg/vencordpatchhelper.svg");
-    --si-equibop: url("https://minidiscordthemes.github.io/SettingsIcons/svg/vesktop.svg");
+    --si-enhancebop: url("https://minidiscordthemes.github.io/SettingsIcons/svg/vesktop.svg");
     --si-vesktop: url("https://minidiscordthemes.github.io/SettingsIcons/svg/vesktop.svg");
     --si-overview: url("https://minidiscordthemes.github.io/SettingsIcons/svg/overview.svg");
     --si-roles: url("https://minidiscordthemes.github.io/SettingsIcons/svg/roles.svg");
@@ -352,9 +352,9 @@
     mask: var(--si-enhancecordpatchhelper) center/contain no-repeat
 }
 
-.sidebar_c25c6d .side_a0 .item_a0[data-tab-id="Equibop"]::before {
-    -webkit-mask: var(--si-equibop) center/contain no-repeat;
-    mask: var(--si-equibop) center/contain no-repeat
+.sidebar_c25c6d .side_a0 .item_a0[data-tab-id="Enhancebop"]::before {
+    -webkit-mask: var(--si-enhancebop) center/contain no-repeat;
+    mask: var(--si-enhancebop) center/contain no-repeat
 }
 
 .sidebar_c25c6d .side_a0 .item_a0[data-tab-id="Vesktop"]::before {
