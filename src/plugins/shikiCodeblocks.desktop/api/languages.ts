@@ -16,10 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { ILanguageRegistration } from "shiki";
+import { ILanguageRegistration } from "@vap/shiki";
 
 export const VPC_REPO = "Vencordian/grammars";
-export const VPC_REPO_COMMIT = "main";
+export const VPC_REPO_COMMIT = "27642eaa86744cceef1c5e06eaa6692c428c8b1b";
 export const vpcRepoAssets = `https://raw.githubusercontent.com/${VPC_REPO}/${VPC_REPO_COMMIT}/assets`;
 export const vpcRepoGrammar = (fileName: string) => `${vpcRepoAssets}/${fileName}`;
 export const vpcRepoLanguages = `${vpcRepoAssets}/languages.json`;

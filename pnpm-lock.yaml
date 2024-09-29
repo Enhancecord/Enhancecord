@@ -19,9 +19,6 @@ importers:
       '@sapphi-red/web-noise-suppressor':
         specifier: 0.3.5
         version: 0.3.5
-      '@supercord/core':
-        specifier: ^0.1.7
-        version: 0.1.7
       '@types/less':
         specifier: ^3.0.6
         version: 3.0.6(patch_hash=krcufrsfhsuxuoj7hocqugs6zi)
@@ -55,9 +52,6 @@ importers:
       openai:
         specifier: ^4.30.0
         version: 4.52.7
-      shiki:
-        specifier: ~0.14.7
-        version: 0.14.7
       usercss-meta:
         specifier: ^0.12.0
         version: 0.12.0
@@ -504,9 +498,6 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@supercord/core@0.1.7':
-    resolution: {integrity: sha512-gn86dwCoPOzy7BRL5M7HVE+iOvTl0PbltGmwk8q2x2TlUYSp2jIejz7d2g2xGEedfEz0zCJwK/QiREGj3VpI7w==}
-
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
@@ -708,9 +699,6 @@ packages:
   ansi-regex@6.0.1:
     resolution: {integrity: sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==}
     engines: {node: '>=12'}
-
-  ansi-sequence-parser@1.1.1:
-    resolution: {integrity: sha512-vJXt3yiaUL4UU546s3rPXlsry/RnM730G1+HkpKE012AN0sx1eOrxSu95oKDIonskeLTijMgqWZ3uDEe3NFvyg==}
 
   ansi-styles@3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
@@ -2075,9 +2063,6 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki@0.14.7:
-    resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
-
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
@@ -2337,9 +2322,6 @@ packages:
 
   vscode-textmate@5.2.0:
     resolution: {integrity: sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==}
-
-  vscode-textmate@8.0.0:
-    resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
 
   web-streams-polyfill@3.3.3:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
@@ -2691,10 +2673,6 @@ snapshots:
       - supports-color
       - typescript
 
-  '@supercord/core@0.1.7':
-    dependencies:
-      eventemitter3: 4.0.7
-
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
   '@types/chrome@0.0.269':
@@ -2930,8 +2908,6 @@ snapshots:
   ansi-regex@5.0.1: {}
 
   ansi-regex@6.0.1: {}
-
-  ansi-sequence-parser@1.1.1: {}
 
   ansi-styles@3.2.1:
     dependencies:
@@ -4363,13 +4339,6 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki@0.14.7:
-    dependencies:
-      ansi-sequence-parser: 1.1.1
-      jsonc-parser: 3.2.0
-      vscode-oniguruma: 1.7.0
-      vscode-textmate: 8.0.0
-
   side-channel@1.0.6:
     dependencies:
       call-bind: 1.0.7
@@ -4705,8 +4674,6 @@ snapshots:
   vscode-oniguruma@1.7.0: {}
 
   vscode-textmate@5.2.0: {}
-
-  vscode-textmate@8.0.0: {}
 
   web-streams-polyfill@3.3.3: {}
 
