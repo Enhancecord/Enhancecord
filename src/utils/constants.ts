@@ -580,7 +580,7 @@ export const Devs = /* #__PURE__*/ Object.freeze({
     JW: {
         name: "jw0902",
         id: 780493281552760862n
-    }
+    },
 } satisfies Record<string, Dev>);
 
 export const EnhancecordDevs = Object.freeze({

@@ -5,7 +5,7 @@
 */
 
 import definePlugin from "@utils/types";
-
+import { Devs } from "@utils/constants";
 import { makeContextItem } from "./components";
 import settings, { folderIconsData } from "./settings";
 import { folderProp, int2rgba } from "./util";
@@ -14,12 +14,7 @@ export default definePlugin({
     settings,
     name: "CustomFolderIcons",
     description: "Customize folder icons with any png",
-    authors: [
-    {
-        name: "sadan",
-        id: 521819891141967883n
-    }
-    ],
+    authors: [Devs.sadan],
     patches: [
         {
             find: ".expandedFolderIconWrapper",
@@ -35,12 +30,12 @@ export default definePlugin({
             menuItems.push(makeContextItem(props));
         }
     },
-    shouldReplace(props: any): boolean{
+    shouldReplace(props: any): boolean {
         return !!((settings.store.folderIcons as folderIconsData)?.[props.folderNode.id]?.url);
     },
-    replace(props: any){
+    replace(props: any) {
         const folderSettings = (settings.store.folderIcons as folderIconsData);
-        if (folderSettings && folderSettings[props.folderNode.id]){
+        if (folderSettings && folderSettings[props.folderNode.id]) {
             const data = folderSettings[props.folderNode.id];
             return (
                 <div

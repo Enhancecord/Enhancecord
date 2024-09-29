@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { Devs } from "@utils/constants";
+import { EnhancecordDevs } from "@utils/constants";
 import { definePluginSettings } from "@api/Settings";
 import definePlugin, { OptionType } from "@utils/types";
 
@@ -31,7 +31,7 @@ export const toggleButton = () => {
 export const settings = definePluginSettings({
     enableButton: {
         type: OptionType.BOOLEAN,
-        description: "Shows a notice when a message is hidden",
+        description: "Enable Win Button",
         default: true,
         onChange: toggleButton
     }
@@ -40,7 +40,7 @@ export const settings = definePluginSettings({
 export default definePlugin({
     name: "WinButtonToggle",
     description: "Toggles win buttons on and off to make your Discord look cleaner",
-    authors: [Devs.JW],
+    authors: [EnhancecordDevs.jw],
     enabledByDefault: false,
     settings: settings,
 
