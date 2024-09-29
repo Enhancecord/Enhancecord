@@ -20,20 +20,11 @@ import { EnhancecordDevs } from "@utils/constants";
 import { definePluginSettings } from "@api/Settings";
 import definePlugin, { OptionType } from "@utils/types";
 
-export const toggleButton = () => {
-    document.querySelectorAll(".platform-win .winButton_a934d8").forEach(btn => {
-        const btnFixed = btn as HTMLElement;
-        /* Enable and Disable */
-        btnFixed.style.display = settings.store.enableButton ? 'flex' : 'none';
-    });
-};
-
 export const settings = definePluginSettings({
     enableButton: {
         type: OptionType.BOOLEAN,
         description: "Enable Win Button",
         default: true,
-        onChange: toggleButton
     }
 });
 
@@ -44,27 +35,34 @@ export default definePlugin({
     enabledByDefault: false,
     settings: settings,
 
-    onKey(e: KeyboardEvent) {
-        const hasCtrl = e.ctrlKey;
-
-        if (hasCtrl) {
-            switch (e.key) {
-                case "x":
-                case "X":
-                    settings.store.enableButton = !settings.store.enableButton;
-                    break;
-                default:
-                    break;
-            }
-        }
-    },
-
     start() {
-        document.addEventListener("keydown", this.onKey);
+        this.applySetting();
+
+        document.addEventListener("keydown", this.onKey.bind(this));
     },
 
     stop() {
-        document.removeEventListener("keydown", this.onKey);
+        document.removeEventListener("keydown", this.onKey.bind(this));
+    },
+
+    onKey(e) {
+        if (e.ctrlKey && e.key === "x") {
+            this.toggleSetting();
+        }
+    },
+
+    toggleSetting() {
+        const currentValue = settings.store.enableButton;
+        settings.store.enableButton = !currentValue;
+        this.applySetting();
+    },
+
+    applySetting() {
+        const enableButton = settings.store.enableButton;
+        document.querySelectorAll(".platform-win .winButton_a934d8").forEach(btn => {
+            const btnFixed = btn as HTMLElement;
+            btnFixed.style.display = enableButton ? 'flex' : 'none';
+        });
     }
 });
 
