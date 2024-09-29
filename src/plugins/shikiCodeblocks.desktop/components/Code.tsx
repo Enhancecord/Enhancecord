@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import type { IThemedToken } from "shiki";
+import type { IThemedToken } from "@vap/shiki";
 import { hljs } from "@webpack/common";
 
 import { cl } from "../utils/misc";

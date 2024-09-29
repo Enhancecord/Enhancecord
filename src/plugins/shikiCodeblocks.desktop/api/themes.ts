@@ -19,7 +19,7 @@
 import { IShikiTheme } from "@vap/shiki";
 
 export const SHIKI_REPO = "shikijs/textmate-grammars-themes";
-export const SHIKI_REPO_COMMIT = "main";
+export const SHIKI_REPO_COMMIT = "4130c1421523182fd917b2fcc16a485b05a7e0d6";
 export const shikiRepoTheme = (name: string) => `https://raw.githubusercontent.com/${SHIKI_REPO}/${SHIKI_REPO_COMMIT}/packages/tm-themes/themes/${name}.json`;
 
 export const themes = {
