@@ -206,6 +206,7 @@ function ThemesTab() {
 
     async function refreshLocalThemes() {
         const themes = await VencordNative.themes.getThemesList();
+        console.log(themes);
         const themeInfo: ThemeHeader[] = [];
 
         for (const { fileName, content } of themes) {

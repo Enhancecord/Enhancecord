@@ -20,8 +20,8 @@ importers:
         specifier: 0.3.5
         version: 0.3.5
       '@supercord/core':
-        specifier: ^0.1.6
-        version: 0.1.6
+        specifier: ^0.1.7
+        version: 0.1.7
       '@types/less':
         specifier: ^3.0.6
         version: 3.0.6(patch_hash=krcufrsfhsuxuoj7hocqugs6zi)
@@ -56,8 +56,8 @@ importers:
         specifier: ^4.30.0
         version: 4.52.7
       shiki:
-        specifier: ~0.14.3
-        version: 0.14.3
+        specifier: ~0.14.7
+        version: 0.14.7
       usercss-meta:
         specifier: ^0.12.0
         version: 0.12.0
@@ -504,8 +504,8 @@ packages:
     peerDependencies:
       eslint: '>=8.40.0'
 
-  '@supercord/core@0.1.6':
-    resolution: {integrity: sha512-H4NkuWAjozOVh8JfkYvQcQ2Ru//ymxD/AyaCbtSB/DxWEVX1Cp2nTTb+JLAJwkmyCp/i1hleUby4W8QCFSDqog==}
+  '@supercord/core@0.1.7':
+    resolution: {integrity: sha512-gn86dwCoPOzy7BRL5M7HVE+iOvTl0PbltGmwk8q2x2TlUYSp2jIejz7d2g2xGEedfEz0zCJwK/QiREGj3VpI7w==}
 
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
@@ -1194,8 +1194,8 @@ packages:
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
 
-  eslint-module-utils@2.8.1:
-    resolution: {integrity: sha512-rXDXR3h7cs7dy9RNpUlQf80nX31XWJEyGq1tRMo+6GsO5VmTe4UTwtmonAD4ZkAsrfMVDA2wlGJ3790Ys+D49Q==}
+  eslint-module-utils@2.12.0:
+    resolution: {integrity: sha512-wALZ0HFoytlyh/1+4wuZ9FJCD/leWHQzzrxJ8+rebyReSLk7LApMyd3WJaLVoN+D5+WIdJyDK1c6JnE65V4Zyg==}
     engines: {node: '>=4'}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -1589,6 +1589,10 @@ packages:
 
   is-core-module@2.15.0:
     resolution: {integrity: sha512-Dd+Lb2/zvk9SKy1TGCt1wFJFo/MWBPMX5x7KcvLajWTGuomczdQX61PvY5yK6SVACwpoexWo81IfFyoKY2QnTA==}
+    engines: {node: '>= 0.4'}
+
+  is-core-module@2.15.1:
+    resolution: {integrity: sha512-z0vtXSwucUJtANQWldhbtbt7BnL0vxiFjIdDLAatwhDYty2bad6s+rijD6Ri4YuYJubLzIJLUidCh09e1djEVQ==}
     engines: {node: '>= 0.4'}
 
   is-data-view@1.0.1:
@@ -2071,8 +2075,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shiki@0.14.3:
-    resolution: {integrity: sha512-U3S/a+b0KS+UkTyMjoNojvTgrBHjgp7L6ovhFVZsXmBGnVdQ4K4U9oK0z63w538S91ATngv1vXigHCSWOwnr+g==}
+  shiki@0.14.7:
+    resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
 
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
@@ -2687,7 +2691,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@supercord/core@0.1.6':
+  '@supercord/core@0.1.7':
     dependencies:
       eventemitter3: 4.0.7
 
@@ -3451,12 +3455,12 @@ snapshots:
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
-      is-core-module: 2.15.0
+      is-core-module: 2.15.1
       resolve: 1.22.8
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.8.1(@typescript-eslint/parser@8.0.0(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4))(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.0.0(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4))(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -3476,9 +3480,9 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@8.0.0(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4))(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.0.0(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4))(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@9.8.0(patch_hash=xm46kqcmdgzlmm4aifkfpxaho4))
       hasown: 2.0.2
-      is-core-module: 2.15.0
+      is-core-module: 2.15.1
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.fromentries: 2.0.8
@@ -3894,6 +3898,10 @@ snapshots:
   is-callable@1.2.7: {}
 
   is-core-module@2.15.0:
+    dependencies:
+      hasown: 2.0.2
+
+  is-core-module@2.15.1:
     dependencies:
       hasown: 2.0.2
 
@@ -4355,7 +4363,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shiki@0.14.3:
+  shiki@0.14.7:
     dependencies:
       ansi-sequence-parser: 1.1.1
       jsonc-parser: 3.2.0
