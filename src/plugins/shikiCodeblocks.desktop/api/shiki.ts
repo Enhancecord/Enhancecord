@@ -89,9 +89,9 @@ export const shiki = {
         if (!lang || shiki.loadedLangs.has(lang.id)) return;
 
         await client.run("loadLanguage", {
-            // @ts-ignore
             lang: {
-                grammar: lang.grammar ?? await getGrammar(lang)
+                ...lang,
+                grammar: lang.grammar ?? await getGrammar(lang),
             }
         });
         shiki.loadedLangs.add(lang.id);
