@@ -808,12 +808,6 @@ export const EnhancecordDevs = Object.freeze({
         name: "llytz",
         id: 1271128098301022240n
     },
-<<<<<<< HEAD
-    JW: {
-        name: "jw0902",
-        id: 780493281552760862n
-    }
-=======
     nin0dev: {
         name: "nin0dev",
         id: 886685857560539176n
@@ -927,7 +921,6 @@ export const EnhancecordDevs = Object.freeze({
         name: "arHSM",
         id: 841509053422632990n
     },
->>>>>>> upstream/main
 } satisfies Record<string, Dev>);
 
 // iife so #__PURE__ works correctly

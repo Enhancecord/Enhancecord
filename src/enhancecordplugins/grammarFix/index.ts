@@ -9,12 +9,8 @@ import {
     removePreSendListener,
     SendListener,
 } from "@api/MessageEvents";
-<<<<<<< HEAD:src/enhancecordplugins/grammarFix/index.ts
 import { EnhancecordDevs } from "@utils/constants";
-import definePlugin from "@utils/types";
-=======
 import { definePluginSettings } from "@api/Settings";
-import { EquicordDevs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 
 const settings = definePluginSettings(
@@ -33,7 +29,6 @@ const settings = definePluginSettings(
         }
     }
 );
->>>>>>> upstream/main:src/equicordplugins/grammarFix/index.ts
 
 const getPresend = dictionary => {
     const presendObject: SendListener = (_, msg) => {
