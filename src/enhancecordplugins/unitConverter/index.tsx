@@ -21,7 +21,11 @@ import "./style.css";
 import { addAccessory } from "@api/MessageAccessories";
 import { addButton } from "@api/MessagePopover";
 import { definePluginSettings } from "@api/Settings";
+<<<<<<< HEAD:src/enhancecordplugins/unitConverter/index.tsx
 import { EnhancecordDevs } from "@utils/constants";
+=======
+import { Devs } from "@utils/constants";
+>>>>>>> upstream/main:src/equicordplugins/unitConverter/index.tsx
 import definePlugin, { OptionType } from "@utils/types";
 import { ChannelStore } from "@webpack/common";
 
@@ -55,7 +59,11 @@ export const settings = definePluginSettings({
 export default definePlugin({
     name: "UnitConverter",
     description: "Converts metric units to Imperal units and vice versa",
+<<<<<<< HEAD:src/enhancecordplugins/unitConverter/index.tsx
     authors: [EnhancecordDevs.sadan],
+=======
+    authors: [Devs.sadan],
+>>>>>>> upstream/main:src/equicordplugins/unitConverter/index.tsx
     start() {
         addAccessory("vc-converter", props => <ConverterAccessory message={props.message} />);
         addButton("vc-converter", message => {

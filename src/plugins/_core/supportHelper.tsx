@@ -180,6 +180,8 @@ export default definePlugin({
         async CHANNEL_SELECT({ channelId }) {
             if (!SUPPORT_CHANNEL_IDS.includes(channelId)) return;
 
+            const selfId = UserStore.getCurrentUser()?.id;
+            if (!selfId || isPluginDev(selfId) || isEquicordPluginDev(selfId)) return;
             if (channelId === VC_SUPPORT_CHANNEL_ID && Vencord.Plugins.isPluginEnabled("VCSupport") && !clicked) {
                 clicked = true;
                 return Alerts.show({
@@ -199,9 +201,12 @@ export default definePlugin({
                 });
             }
 
+<<<<<<< HEAD
             const selfId = UserStore.getCurrentUser()?.id;
             if (!selfId || isPluginDev(selfId) || isEnhancecordPluginDev(selfId)) return;
 
+=======
+>>>>>>> upstream/main
             if (!IS_UPDATER_DISABLED) {
                 await checkForUpdatesOnce().catch(() => { });
 
