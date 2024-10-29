@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import "./VencordTab.css";
+
 import { openNotificationLogModal } from "@api/Notifications/notificationLog";
 import { useSettings } from "@api/Settings";
 import { classNameFactory } from "@api/Styles";
@@ -35,8 +37,8 @@ import { SettingsTab, wrapTab } from "./shared";
 
 const cl = classNameFactory("vc-settings-");
 
-const DEFAULT_DONATE_IMAGE = "https://cdn.discordapp.com/attachments/1245975852597117062/1289689242204639314/icon_1.png?ex=66f9bc34&is=66f86ab4&hm=35f1e06de2afc7b14d84360614b97e38ad48d35f53d6ec80ae62e6f3d7c437ec&";
-const SHIGGY_DONATE_IMAGE = "https://i.imgur.com/csrIZSG.png";
+const DEFAULT_DONATE_IMAGE = "https://cdn.discordapp.com/emojis/1026533090627174460.png";
+const SHIGGY_DONATE_IMAGE = "https://i.imgur.com/57ATLZu.png";
 
 type KeysOfType<Object, Type> = {
     [K in keyof Object]: Object[K] extends Type ? K : never;
@@ -60,47 +62,55 @@ function EnhancecordSettings() {
         key: KeysOfType<typeof settings, boolean>;
         title: string;
         note: string;
+        warning: { enabled: boolean; message?: string; };
     }> =
         [
             {
                 key: "useQuickCss",
                 title: "Enable Custom CSS",
-                note: "Loads your Custom CSS"
+                note: "Loads your Custom CSS",
+                warning: { enabled: false }
             },
             !IS_WEB && {
                 key: "enableReactDevtools",
                 title: "Enable React Developer Tools",
-                note: "Requires a full restart"
+                note: "Requires a full restart",
+                warning: { enabled: false }
             },
             !IS_WEB && (!IS_DISCORD_DESKTOP || !isWindows ? {
                 key: "frameless",
                 title: "Disable the window frame",
-                note: "Requires a full restart"
+                note: "Requires a full restart",
+                warning: { enabled: false }
             } : {
                 key: "winNativeTitleBar",
                 title: "Use Windows' native title bar instead of Discord's custom one",
-                note: "Requires a full restart"
+                note: "Requires a full restart",
+                warning: { enabled: false }
             }),
             !IS_WEB && {
                 key: "transparent",
                 title: "Enable window transparency.",
-                note: "You need a theme that supports transparency or this will do nothing. WILL STOP THE WINDOW FROM BEING RESIZABLE!! Requires a full restart"
+                note: "You need a theme that supports transparency or this will do nothing. Requires a full restart",
+                warning: { enabled: true, message: "This will stop the window from being resizable" }
             },
             !IS_WEB && isWindows && {
                 key: "winCtrlQ",
                 title: "Register Ctrl+Q as shortcut to close Discord (Alternative to Alt+F4)",
-                note: "Requires a full restart"
+                note: "Requires a full restart",
+                warning: { enabled: false }
             },
             IS_DISCORD_DESKTOP && {
                 key: "disableMinSize",
                 title: "Disable minimum window size",
-                note: "Requires a full restart"
+                note: "Requires a full restart",
+                warning: { enabled: false }
             },
         ];
 
     return (
         <SettingsTab title="Enhancecord Settings">
-            <DonateCard invite={discordInvite} image={donateImage} />
+            <DiscordInviteCard invite={discordInvite} image={donateImage} />
             <Forms.FormSection title="Quick Actions">
                 <QuickActionCard>
                     <QuickAction
@@ -154,7 +164,14 @@ function EnhancecordSettings() {
                         key={s.key}
                         value={settings[s.key]}
                         onChange={v => settings[s.key] = v}
-                        note={s.note}
+                        note={
+                            s.warning.enabled ? <>
+                                {s.note}
+                                <div className="form-switch-warning">
+                                    {s.warning.message}
+                                </div>
+                            </> : s.note
+                        }
                     >
                         {s.title}
                     </Switch>
@@ -250,9 +267,28 @@ function DiscordInviteCard({ invite, image }: DiscordInviteProps) {
     return (
         <Card className={cl("card", "discordinvite")}>
             <div>
-                <Forms.FormTitle tag="h5">Support the Project</Forms.FormTitle>
-                <Forms.FormText>Please consider supporting the development of Equicord by donating!</Forms.FormText>
-                <DonateButton style={{ transform: "translateX(-1em)" }} />
+                <Forms.FormTitle tag="h5">Join the discord!</Forms.FormTitle>
+                <Forms.FormText>Please consider joining the discord for any news on breaking changes, or new bigger updates!</Forms.FormText>
+                <Forms.FormText>You can also donate to me if you'd like to support this project. <Heart /></Forms.FormText>
+
+                <div className={cl("card-buttons")}>
+                    <Button
+                        className="vc-joindiscordbutton vc-settingbuttons"
+                        onClick={async e => {
+                            e.preventDefault();
+                            openInviteModal(invite).catch(() => showToast("Invalid or expired invite"));
+                        }}
+                    >
+                        Join
+                    </Button>
+
+                    <Button
+                        className="vc-donatebutton vc-settingbuttons"
+                        onClick={() => { VencordNative.native.openExternal("https://github.com/sponsors/verticalsync"); }}
+                    >
+                        Donate
+                    </Button>
+                </div>
             </div>
             <img
                 role="presentation"
