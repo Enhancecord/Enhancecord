@@ -106,7 +106,7 @@ export async function migrateLegacyToAsar() {
         app.whenReady().then(() => {
             dialog.showErrorBox(
                 "Legacy Install",
-                "The way Enhancecord loaded was changed and the updater failed to migrate. Please reinstall using the Equicord Installer!"
+                "The way Enhancecord loaded was changed and the updater failed to migrate. Please reinstall using the Enhancecord Installer!"
             );
             app.exit(1);
         });

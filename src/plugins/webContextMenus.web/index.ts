@@ -32,12 +32,15 @@ async function fetchImage(url: string) {
 }
 
 let result;
-if (IS_VESKTOP) {
-    result = IS_VESKTOP;
-} else if (IS_ENHANCEBOP) {
-    result = IS_ENHANCEBOP;
-} else {
-    result = false;
+switch (true) {
+    case IS_VESKTOP:
+    case IS_ENHANCEBOP:
+    case "legcord" in window:
+    case "goofcord" in window:
+        result = true;
+        break;
+    default:
+        result = false;
 }
 
 
