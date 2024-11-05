@@ -580,15 +580,13 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         name: "RamziAH",
         id: 1279957227612147747n
     },
-<<<<<<< HEAD
     JW: {
         name: "jw0902",
         id: 780493281552760862n
-=======
+    },
     SomeAspy: {
         name: "SomeAspy",
         id: 516750892372852754n
->>>>>>> upstream/main
     },
 } satisfies Record<string, Dev>);
 
