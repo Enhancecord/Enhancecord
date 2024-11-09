@@ -285,7 +285,7 @@ export default definePlugin({
         },
         // Remove boost requirements to stream with high quality
         {
-            find: "STREAM_FPS_OPTION.format",
+            find: "#{intl::STREAM_FPS_OPTION}",
             predicate: () => settings.store.enableStreamQualityBypass,
             replacement: {
                 match: /guildPremiumTier:\i\.\i\.TIER_\d,?/g,
@@ -356,7 +356,7 @@ export default definePlugin({
             ]
         },
         {
-            find: ".Messages.STICKER_POPOUT_UNJOINED_PRIVATE_GUILD_DESCRIPTION.format",
+            find: "#{intl::STICKER_POPOUT_UNJOINED_PRIVATE_GUILD_DESCRIPTION}",
             predicate: () => settings.store.transformStickers,
             replacement: [
                 {
@@ -381,7 +381,7 @@ export default definePlugin({
             }
         },
         {
-            find: ".Messages.EMOJI_POPOUT_UNJOINED_DISCOVERABLE_GUILD_DESCRIPTION",
+            find: "#{intl::EMOJI_POPOUT_UNJOINED_DISCOVERABLE_GUILD_DESCRIPTION}",
             predicate: () => settings.store.transformEmojis,
             replacement: {
                 // Add the fake nitro emoji notice
@@ -928,6 +928,9 @@ export default definePlugin({
                     const url = new URL(IconUtils.getEmojiURL({ id: emoji.id, animated: emoji.animated, size: s.emojiSize }));
                     url.searchParams.set("size", s.emojiSize.toString());
                     url.searchParams.set("name", emoji.name);
+                    if (emoji.animated) {
+                        url.pathname = url.pathname.replace(".webp", ".gif");
+                    }
 
                     const linkText = s.hyperLinkText.replaceAll("{{NAME}}", emoji.name);
 

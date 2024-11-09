@@ -601,7 +601,7 @@ export default definePlugin({
     authors: [EnhancecordDevs.creations],
     patches: [
         {
-            find: ".Messages.EMOJI_MATCHING",
+            find: "#{intl::EMOJI_MATCHING}",
             replacement: {
                 match: /renderResults\((\i)\){/,
                 replace: "$&$1.results.emojis=$self.filterEmojis($1);if($1.results.emojis.length===0)return;"

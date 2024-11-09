@@ -187,6 +187,7 @@ await Promise.all([
         sourcemap,
         plugins: [
             globPlugins("vencordDesktop"),
+            globPlugins("enhancecordDesktop"),
             ...commonOpts.plugins
         ],
         define: {
@@ -215,7 +216,7 @@ await Promise.all([
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/main/index.ts")],
         outfile: "dist/enhancebop/main.js",
-        footer: { js: "//# sourceURL=EnhancecordMain\n" + sourceMapFooter("main") },
+        footer: { js: "//# sourceURL=VencordMain\n" + sourceMapFooter("main") },
         sourcemap,
         define: {
             ...defines,
@@ -234,7 +235,7 @@ await Promise.all([
         outfile: "dist/enhancebop/renderer.js",
         format: "iife",
         target: ["esnext"],
-        footer: { js: "//# sourceURL=EnhancecordRenderer\n" + sourceMapFooter("renderer") },
+        footer: { js: "//# sourceURL=VencordRenderer\n" + sourceMapFooter("renderer") },
         globalName: "Vencord",
         sourcemap,
         plugins: [
@@ -252,7 +253,7 @@ await Promise.all([
         ...nodeCommonOpts,
         entryPoints: [join(dirname(fileURLToPath(import.meta.url)), "../../src/preload.ts")],
         outfile: "dist/enhancebop/preload.js",
-        footer: { js: "//# sourceURL=EnhancecordPreload\n" + sourceMapFooter("preload") },
+        footer: { js: "//# sourceURL=VencordPreload\n" + sourceMapFooter("preload") },
         sourcemap,
         define: {
             ...defines,
