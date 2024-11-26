@@ -6,8 +6,8 @@
 
 import "./style.css";
 
-import { MessageEvents } from "@api/index";
-import { MessageExtra, MessageObject } from "@api/MessageEvents";
+
+import { addPreSendListener, MessageExtra, MessageObject, removePreSendListener } from "@api/MessageEvents";
 import { EnhancecordDevs } from "@utils/constants";
 import definePlugin from "@utils/types";
 import { Forms } from "@webpack/common";
@@ -23,6 +23,6 @@ export default definePlugin({
             We can't guarantee this plugin won't get you warned or banned.
         </Forms.FormText>
     </>,
-    start: () => MessageEvents.addPreSendListener(handleMessage),
-    stop: () => MessageEvents.removePreSendListener(handleMessage)
+    start: () => addPreSendListener(handleMessage),
+    stop: () => removePreSendListener(handleMessage)
 });
