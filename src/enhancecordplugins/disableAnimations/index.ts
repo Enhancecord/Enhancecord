@@ -16,27 +16,38 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { getUserSettingLazy } from "@api/UserSettings";
-import { Devs } from "@utils/constants";
+import { EnhancecordDevs } from "@utils/constants";
 import definePlugin from "@utils/types";
+import { findAll } from "@webpack";
 
-const DisableStreamPreviews = getUserSettingLazy<boolean>("voiceAndVideo", "disableStreamPreviews")!;
-
-// @TODO: Delete this plugin in the future
 export default definePlugin({
-    name: "NoScreensharePreview",
-    description: "Disables screenshare previews from being sent.",
-    authors: [Devs.Nuckyz],
-
+    name: "DisableAnimations",
+    description: "Disables most of Discord's animations.",
+    authors: [EnhancecordDevs.seth],
     start() {
-        if (!DisableStreamPreviews.getSetting()) {
-            DisableStreamPreviews.updateSetting(true);
-        }
-    },
+        this.springs = findAll((mod) => {
+            if (!mod.Globals) return false;
+            return true;
+        });
 
-    stop() {
-        if (DisableStreamPreviews.getSetting()) {
-            DisableStreamPreviews.updateSetting(false);
+        for (const spring of this.springs) {
+            spring.Globals.assign({
+                skipAnimation: true,
+            });
         }
+
+        this.css = document.createElement("style");
+        this.css.innerText = "* { transition: none !important; animation: none !important; }";
+
+        document.head.appendChild(this.css);
+    },
+    stop() {
+        for (const spring of this.springs) {
+            spring.Globals.assign({
+                skipAnimation: false,
+            });
+        }
+
+        if (this.css) this.css.remove();
     }
 });
