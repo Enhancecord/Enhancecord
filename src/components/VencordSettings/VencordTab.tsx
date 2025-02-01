@@ -43,7 +43,7 @@ const cl = classNameFactory("vc-settings-");
 
 const DEFAULT_DONATE_IMAGE =
   "https://cdn.discordapp.com/emojis/1026533090627174460.png";
-const SHIGGY_DONATE_IMAGE = "https://i.imgur.com/mIk2rqn.png";
+const SHIGGY_DONATE_IMAGE = "https://i.imgur.com/57ATLZu.png";
 
 type KeysOfType<Object, Type> = {
   [K in keyof Object]: Object[K] extends Type ? K : never;
@@ -98,7 +98,6 @@ function EnhancecordSettings() {
           warning: { enabled: false },
         }
         : {
-<<<<<<< HEAD
           key: "winNativeTitleBar",
           title:
             "Use Windows' native title bar instead of Discord's custom one",
@@ -110,24 +109,9 @@ function EnhancecordSettings() {
         title: "Enable window transparency.",
         note: "You need a theme that supports transparency or this will do nothing. Requires a full restart!",
         warning: {
-          enabled: true,
-          message: "This will stop the window from being resizable.",
+          enabled: isWindows,
+          message: "Enabling this will prevent you from snapping this window.",
         },
-=======
-            key: "winNativeTitleBar",
-            title:
-              "Use Windows' native title bar instead of Discord's custom one",
-            note: "Requires a full restart",
-            warning: { enabled: false },
-          }),
-    !IS_WEB && {
-      key: "transparent",
-      title: "Enable window transparency.",
-      note: "You need a theme that supports transparency or this will do nothing. Requires a full restart!",
-      warning: {
-        enabled: isWindows,
-        message: "Enabling this will prevent you from snapping this window.",
->>>>>>> upstream/main
       },
       !IS_WEB &&
       isWindows && {
