@@ -10,7 +10,7 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 
 ### Extra included plugins
 <details>
-<summary>149 additional plugins</summary>
+<summary>146 additional plugins</summary>
 
 ### All Platforms
 - AllCallTimers by MaxHerbold & D3SOX
@@ -42,8 +42,8 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - CuteNekos by echo
 - CutePats by thororen
 - DecodeBase64 by ThePirateStoner
+- DeadMembers by Kyuuhachi
 - Demonstration by Samwich
-- DisableAnimations by S€th
 - DisableCameras by Joona
 - DoNotLeak by Perny
 - DontFilterMe by Samwich
@@ -51,13 +51,11 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - Encryptcord by Inbestigator
 - EnhancecordCSS by thororen, Panniku, Dablulite, Coolesding, MiniDiscordThemes, LuckFire, gold_me
 - ExportContacts by dat_insanity
-- FakeProfileThemesAndEffects by ryan
 - FindReply by newwares
 - FixFileExtensions by thororen
 - FrequentQuickSwitcher by Samwich
 - FriendshipRanks by Samwich
 - FriendTags by Samwich
-- FullUserInChatbox by sadan
 - GensokyoRadioRPC by RyanCaoDev & Prince527
 - GifCollections by Aria & Creations
 - GifRoulette by Samwich
@@ -66,7 +64,6 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - GodMode by Tolgchu
 - GoodPerson by nin0dev & mantikafasi
 - GoogleThat by Samwich
-- GrammarFix by S€th
 - HideChatButtons by iamme
 - HideMessage by Hanzy
 - HideServers by bepvte
@@ -79,7 +76,6 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - ImagePreview by Creations
 - ImgToGif by zyqunix
 - InRole by nin0dev
-- IrcColors by Grzesiek11
 - IRememberYou by zoodogood
 - Jumpscare by Surgedevs
 - JumpToStart by Samwich
@@ -94,8 +90,8 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - MessageLoggerEnhanced by Aria
 - MessagePeek by HypedDomi
 - MessageTranslate by Samwich
-- ModalFade by Kyuuhachi
 - MoreStickers by Leko & Arjix
+- NeverPausePreviews by vappstar
 - NewPluginsManager by Sqaaakoi
 - NoAppsAllowed by kvba
 - NoBulletPoints by Samwich
@@ -115,8 +111,8 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - Quoter by Samwich
 - RemixMe by kvba
 - RepeatMessage by Tolgchu
-- ReplaceActivityTypes by Nyako
 - ReplyPingControl by ant0n & MrDiamond
+- RPCEditor by Nyako & nin0dev
 - RPCStats by Samwich
 - SearchFix by Jaxx
 - SekaiStickers by MaiKokain
@@ -124,6 +120,7 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - ShowBadgesInChat by Inbestigator & KrystalSkull
 - Signature by KrystalSkull
 - SidebarChat by Joona
+- StatsfmRPC by Crxaw & vmohammad
 - Slap by Korbo
 - SoundBoardLogger by Moxxie, fres, echo, maintained by thororen
 - StatusPresets by iamme
@@ -147,7 +144,6 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 - VencordRPC by AutumnVN
 - VideoSpeed by Samwich
 - ViewRawVariant (ViewRaw2) by Kyuuhachi
-- VoiceChannelLog by Sqaaakoi & maintained by thororen
 - VoiceChatUtilities by D3SOX
 - WebpackTarball by Kyuuhachi
 - WhitelistedEmojis by Creations
@@ -170,6 +166,7 @@ You can join our [discord server](https://discord.gg/5Xh2W87egW) for commits, ch
 ### Enhancecord Devbuilds Only
 - FurudoSpeak by example-git
 - Shakespearean by vmohammad
+- VoiceChannelLog by Sqaaakoi & maintained by thororen
 - VoiceJoinMessages by Sqaaakoi & maintained by thororen
 
 </details>
@@ -185,6 +182,7 @@ MacOS
 - [GUI](https://github.com/Enhancecord/Enhancelotl/releases/latest/download/Enhancelotl.MacOS.zip)
 
 Linux
+<<<<<<< HEAD
 - [CLI](https://github.com/Enhancecord/Enhancelotl/releases/latest/download/EnhancelotlCli-Linux)
 
 

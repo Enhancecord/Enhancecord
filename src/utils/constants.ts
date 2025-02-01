@@ -747,10 +747,6 @@ export const EnhancecordDevs = Object.freeze({
         name: "Prince527",
         id: 364105797162237952n
     },
-    seth: {
-        name: "S€th",
-        id: 1273447359417942128n
-    },
     ThePirateStoner: {
         name: "ThePirateStoner",
         id: 1196220620376121381n
@@ -798,6 +794,10 @@ export const EnhancecordDevs = Object.freeze({
     Hen: {
         name: "Hen",
         id: 279266228151779329n
+    },
+    Crxa: {
+        name: "Crxa",
+        id: 920290194886914069n
     },
     vmohammad: {
         name: "vMohammad",
@@ -950,11 +950,11 @@ export const EnhancecordDevs = Object.freeze({
     },
     Z1xus: {
         name: "Z1xus",
-        id: 377450600797044746n,
+        id: 377450600797044746n
     },
     Oggetto: {
         name: "Oggetto",
-        id: 619203349954166804n,
+        id: 619203349954166804n
     },
     zyqunix: {
         name: "zyqunix",
@@ -962,12 +962,28 @@ export const EnhancecordDevs = Object.freeze({
     },
     examplegit: {
         name: "example.user",
-        id: 175411535357673473n,
+        id: 175411535357673473n
     },
     Loukios: {
         name: "Loukios",
         id: 211461918127292416n
     },
+    vappstar: {
+        name: "vappstar",
+        id: 747192967311261748n
+    },
+    ExoDev: {
+        name: "ExoDev",
+        id: 1325655837003223137n
+    },
+    voidbbg: {
+        name: "voidbbg",
+        id: 117126234588184582n
+    },
+    OIRNOIR: {
+        name: "OIRNOIR",
+        id: 720842469024989195n
+    }
 } satisfies Record<string, Dev>);
 
 // iife so #__PURE__ works correctly

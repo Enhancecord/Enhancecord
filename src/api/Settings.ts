@@ -23,7 +23,7 @@ import { Logger } from "@utils/Logger";
 import { mergeDefaults } from "@utils/mergeDefaults";
 import { putCloudSettings } from "@utils/settingsSync";
 import { DefinedSettings, OptionType, SettingsChecks, SettingsDefinition } from "@utils/types";
-import { React } from "@webpack/common";
+import { React, useEffect } from "@webpack/common";
 
 import plugins from "~plugins";
 
@@ -208,7 +208,7 @@ export const Settings = SettingsStore.store;
 export function useSettings(paths?: UseSettings<Settings>[]) {
     const [, forceUpdate] = React.useReducer(() => ({}), {});
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (paths) {
             paths.forEach(p => SettingsStore.addChangeListener(p, forceUpdate));
             return () => paths.forEach(p => SettingsStore.removeChangeListener(p, forceUpdate));
@@ -216,7 +216,7 @@ export function useSettings(paths?: UseSettings<Settings>[]) {
             SettingsStore.addGlobalChangeListener(forceUpdate);
             return () => SettingsStore.removeGlobalChangeListener(forceUpdate);
         }
-    }, []);
+    }, [paths]);
 
     return SettingsStore.store;
 }
@@ -234,6 +234,30 @@ export function migratePluginSettings(name: string, ...oldNames: string[]) {
             break;
         }
     }
+}
+
+export function migratePluginSetting(pluginName: string, oldSetting: string, newSetting: string) {
+    const settings = SettingsStore.plain.plugins[pluginName];
+    if (!settings) return;
+
+    if (!Object.hasOwn(settings, oldSetting) || Object.hasOwn(settings, newSetting)) return;
+
+    settings[newSetting] = settings[oldSetting];
+    delete settings[oldSetting];
+    SettingsStore.markAsChanged();
+}
+
+export function migrateSettingFromPlugin(newPlugin: string, newSetting: string, oldPlugin: string, oldSetting: string) {
+    const newSettings = SettingsStore.plain.plugins[newPlugin];
+    const oldSettings = SettingsStore.plain.plugins[oldPlugin];
+    if (!oldSettings || !Object.hasOwn(oldSettings, oldSetting)) return;
+    if (!newSettings || (Object.hasOwn(newSettings, newSetting))) return;
+
+    if (Object.hasOwn(newSettings, newSetting)) return;
+
+    newSettings[newSetting] = oldSettings[oldSetting];
+    delete oldSettings[oldSetting];
+    SettingsStore.markAsChanged();
 }
 
 export function definePluginSettings<

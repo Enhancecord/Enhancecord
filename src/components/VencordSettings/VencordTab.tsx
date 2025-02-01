@@ -98,6 +98,7 @@ function EnhancecordSettings() {
           warning: { enabled: false },
         }
         : {
+<<<<<<< HEAD
           key: "winNativeTitleBar",
           title:
             "Use Windows' native title bar instead of Discord's custom one",
@@ -112,6 +113,21 @@ function EnhancecordSettings() {
           enabled: true,
           message: "This will stop the window from being resizable.",
         },
+=======
+            key: "winNativeTitleBar",
+            title:
+              "Use Windows' native title bar instead of Discord's custom one",
+            note: "Requires a full restart",
+            warning: { enabled: false },
+          }),
+    !IS_WEB && {
+      key: "transparent",
+      title: "Enable window transparency.",
+      note: "You need a theme that supports transparency or this will do nothing. Requires a full restart!",
+      warning: {
+        enabled: isWindows,
+        message: "Enabling this will prevent you from snapping this window.",
+>>>>>>> upstream/main
       },
       !IS_WEB &&
       isWindows && {

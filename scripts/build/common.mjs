@@ -115,7 +115,7 @@ export const globPlugins = kind => ({
         });
 
         build.onLoad({ filter, namespace: "import-plugins" }, async () => {
-            const pluginDirs = ["plugins/_api", "plugins/_core", "plugins", "userplugins", "enhancecordplugins"];
+            const pluginDirs = ["plugins/_api", "plugins/_core", "plugins", "userplugins", "enhancecordplugins", "enhancecordplugins/_core"];
             let code = "";
             let pluginsCode = "\n";
             let metaCode = "\n";

@@ -23,7 +23,7 @@ import { findAll } from "@webpack";
 export default definePlugin({
     name: "DisableAnimations",
     description: "Disables most of Discord's animations.",
-    authors: [EnhancecordDevs.seth],
+    authors: [EnhancecordDevs.jw],
     start() {
         this.springs = findAll((mod) => {
             if (!mod.Globals) return false;

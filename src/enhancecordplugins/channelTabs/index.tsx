@@ -12,6 +12,7 @@ import { Devs, EnhancecordDevs } from "@utils/constants";
 import definePlugin from "@utils/types";
 import { ChannelStore, Menu } from "@webpack/common";
 import { Channel, Message } from "discord-types/general";
+import { JSX } from "react";
 
 import ChannelsTabsContainer from "./components/ChannelTabsContainer";
 import { BasicChannelTabsProps, createTab, settings } from "./util";
@@ -47,7 +48,7 @@ export default definePlugin({
         {
             find: ".COLLECTIBLES_SHOP_FULLSCREEN))",
             replacement: {
-                match: /(\?void 0:(\i)\.channelId.{0,250})\i\.Fragment,{/,
+                match: /(\?void 0:(\i)\.channelId.{0,300})\i\.Fragment,{/,
                 replace: "$1$self.render,{currentChannel:$2,"
             }
         },

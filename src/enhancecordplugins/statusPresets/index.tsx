@@ -18,7 +18,7 @@
 
 import "./style.css";
 
-import { definePluginSettings } from "@api/Settings";
+import { definePluginSettings, Settings } from "@api/Settings";
 import { getUserSettingLazy } from "@api/UserSettings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { EnhancecordDevs } from "@utils/constants";
@@ -28,7 +28,7 @@ import { ModalProps, openModalLazy } from "@utils/modal";
 import { useForceUpdater } from "@utils/react";
 import definePlugin, { OptionType, StartAt } from "@utils/types";
 import { extractAndLoadChunksLazy, findByPropsLazy, findComponentByCodeLazy, findModuleId, wreq } from "@webpack";
-import { Button, Clickable, Icons, Menu, Toasts, UserStore, useState } from "@webpack/common";
+import { Button, Clickable, Menu, Toasts, UserStore, useState } from "@webpack/common";
 import { FunctionComponent } from "react";
 
 
@@ -47,6 +47,8 @@ interface Emoji {
     name: string;
 }
 
+const CircleXIcon = findComponentByCodeLazy("22Zm4.7-15.7a1");
+
 interface DiscordStatus {
     emojiInfo: Emoji | null;
     text: string;
@@ -56,7 +58,6 @@ interface DiscordStatus {
 
 const StatusStyles = findByPropsLazy("statusItem");
 // TODO: find clearCustomStatusHint original css/svg or replace
-
 const PMenu = findComponentByCodeLazy(".menuItemLabel", ".menuItemInner");
 const EmojiComponent = findComponentByCodeLazy(/\.translateSurrogatesToInlineEmoji\(\i.\i\),/);
 
@@ -66,7 +67,7 @@ const StatsModule: { default: FunctionComponent<ModalProps>; } = proxyLazy(() =>
     return wreq(Number(id));
 });
 
-const requireCustomStatusModal = extractAndLoadChunksLazy(["action:\"PRESS_ADD_CUSTOM_STATUS\"", ".openModalLazy"]);
+const requireCustomStatusModal = extractAndLoadChunksLazy(["action:\"PRESS_ADD_CUSTOM_STATUS\"", /\i\.\i\i\)/]);
 
 const openCustomStatusModalLazy = () => openModalLazy(async () => {
     await requireCustomStatusModal();
@@ -90,11 +91,11 @@ function setStatus(status: DiscordStatus) {
     });
 }
 
-const ClearStatusButton = () => <Clickable className={StatusStyles.clearCustomStatusHint} onClick={e => { e.stopPropagation(); CustomStatusSettings?.updateSetting(null); }}><Icons.CircleXIcon size="sm" /></Clickable>;
+const ClearStatusButton = () => <Clickable className={StatusStyles.clearCustomStatusHint} onClick={e => { e.stopPropagation(); CustomStatusSettings?.updateSetting(null); }}><CircleXIcon /></Clickable>;
 
 function StatusIcon({ isHovering, status }: { isHovering: boolean; status: DiscordStatus; }) {
     return <div className={StatusStyles.status}>{isHovering ?
-        <Icons.CircleXIcon size="sm" />
+        <CircleXIcon />
         : (status.emojiInfo != null ? <EmojiComponent emoji={status.emojiInfo} animate={false} hideTooltip={false} /> : <div className={StatusStyles.customEmojiPlaceholder} />)}</div>;
 }
 
@@ -123,16 +124,24 @@ const RenderStatusMenuItem = ({ status, update, disabled }: { status: DiscordSta
 
 
 const StatusSubMenuComponent = () => {
+    let premiumType;
+    if (Settings.plugins.NoNitroUpsell?.enabled) {
+        // @ts-ignore
+        premiumType = UserStore?.getCurrentUser()?._realPremiumType ?? UserStore?.getCurrentUser()?.premiumType ?? 0;
+    } else {
+        premiumType = UserStore?.getCurrentUser()?.premiumType ?? 0;
+    }
     const update = useForceUpdater();
     return <Menu.Menu navId="sp-custom-status-submenu" onClose={() => { }}>
         {Object.entries((settings.store.StatusPresets as { [k: string]: DiscordStatus | undefined; })).map(([index, status]) => status != null ? <Menu.MenuItem
+            key={"status-presets-" + index}
             id={"status-presets-" + index}
             label={status.status}
-            action={() => (status.emojiInfo?.id != null && UserStore.getCurrentUser().hasPremiumPerks || status.emojiInfo?.id == null) && setStatus(status)}
+            action={() => (status.emojiInfo?.id != null && premiumType > 0 || status.emojiInfo?.id == null) && setStatus(status)}
             render={() => <RenderStatusMenuItem
                 status={status}
                 update={update}
-                disabled={status.emojiInfo?.id != null && !UserStore.getCurrentUser().hasPremiumPerks}
+                disabled={status.emojiInfo?.id != null && premiumType === 0}
             />}
         /> : null)}
     </Menu.Menu>;
@@ -149,7 +158,7 @@ export default definePlugin({
         {
             find: "#{intl::CUSTOM_STATUS_SET_CUSTOM_STATUS}",
             replacement: {
-                match: /\.ModalFooter,.{0,70}\i\.\i\.string\(\i\.\i#{intl::SAVE}\)\}\)/,
+                match: /\.\i\i,children:.{0,70}\i\.\i\.string\(\i\.\i#{intl::SAVE}\)\}\)/,
                 replace: "$&,$self.renderRememberButton(this.state)"
             }
         },
